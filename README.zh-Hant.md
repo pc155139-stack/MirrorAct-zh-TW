@@ -15,3 +15,9 @@ scripts/build.sh --no-install
 ```
 
 此分支只建置 MirrorAct 用到的 UxPlay AirPlay 函式庫，不需要安裝整套 GStreamer。建置結果會顯示在腳本輸出；請先測試，再移到「應用程式」。
+
+## Chromecast 裝置搜尋實驗
+
+在 iPhone 與 Mac 都連上同一台一般 Wi-Fi 路由器後，可執行 `scripts/cast-discovery-probe.sh`，用緯來 App 的投放清單檢查是否看得到「MirrorAct 測試電視」。按 Control-C 會停止廣播並刪除暫存憑證。iPhone 個人熱點不適合作為這項測試的共同 Wi-Fi 環境。
+
+此腳本只發布 `_googlecast._tcp` 裝置資訊並接聽 TLS；它沒有 CastV2 裝置驗證、App 啟動或影音接收功能。搜尋成功也不代表可以連線或播放。MirrorAct 正式 App 目前仍只接收 USB 與 AirPlay 鏡像。
