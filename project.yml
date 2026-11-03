@@ -1,0 +1,117 @@
+name: MirrorAct
+options:
+  bundleIdPrefix: io.github.sopitz
+  deploymentTarget:
+    macOS: "15.0"
+  createIntermediateGroups: true
+  developmentLanguage: en
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    SWIFT_STRICT_CONCURRENCY: minimal
+    MACOSX_DEPLOYMENT_TARGET: "15.0"
+    MARKETING_VERSION: "0.2.3"
+    CURRENT_PROJECT_VERSION: "5"
+    SWIFT_EMIT_LOC_STRINGS: YES
+    LOCALIZATION_PREFERS_STRING_CATALOGS: YES
+
+configFiles:
+  Debug: Config/Base.xcconfig
+  Release: Config/Base.xcconfig
+
+targets:
+  MirrorAct:
+    type: application
+    platform: macOS
+    configFiles:
+      Debug: Config/Base.xcconfig
+      Release: Config/Base.xcconfig
+    scheme:
+      testTargets:
+        - MirrorActTests
+    sources:
+      - path: MirrorAct
+        excludes:
+          - "**/*.md"
+      - path: Resources/AppIcon.icns
+        buildPhase: resources
+      - path: Shared/DeviceProfiles.json
+        buildPhase: resources
+      - path: Vendor/scrcpy/scrcpy-server
+        buildPhase: resources
+    info:
+      path: MirrorAct/Info.plist
+      properties:
+        CFBundleName: MirrorAct
+        CFBundleDevelopmentRegion: en
+        CFBundleLocalizations:
+          - en
+          - de
+          - zh-Hant
+        CFBundleDisplayName: MirrorAct
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        CFBundleIconFile: AppIcon
+        LSMinimumSystemVersion: $(MACOSX_DEPLOYMENT_TARGET)
+        LSApplicationCategoryType: public.app-category.utilities
+        NSHighResolutionCapable: true
+        NSPrincipalClass: NSApplication
+        NSHumanReadableCopyright: "GPL-3.0-or-later"
+        NSCameraUsageDescription: MirrorAct shows the screen of an iPhone or iPad connected by cable.
+        NSMicrophoneUsageDescription: MirrorAct plays the sound of an iPhone or iPad connected by cable.
+        NSLocalNetworkUsageDescription: MirrorAct can be reached as an AirPlay receiver for Screen Mirroring.
+        NSBonjourServices:
+          - _airplay._tcp
+          - _raop._tcp
+    entitlements:
+      path: MirrorAct/MirrorAct.entitlements
+      properties:
+        com.apple.security.device.camera: true
+        com.apple.security.device.audio-input: true
+    settings:
+      base:
+        PRODUCT_NAME: MirrorAct
+        SWIFT_OBJC_BRIDGING_HEADER: MirrorAct/AirPlay/MirrorAct-Bridging-Header.h
+        HEADER_SEARCH_PATHS:
+          - $(SRCROOT)/Vendor/UxPlay/lib
+          - $(HOMEBREW_PREFIX)/opt/openssl@3/include
+          - $(HOMEBREW_PREFIX)/opt/libplist/include
+        GCC_PREPROCESSOR_DEFINITIONS:
+          - EXTERNAL_DNS_SD=1
+          - UXPLAY_HAVE_APPLE_P2P=1
+          - NOHOLD=1
+          - PLIST_210=1
+          - PLIST_230=1
+          - SYS_ENDIAN_H=1
+        OTHER_LDFLAGS:
+          - $(SRCROOT)/Vendor/uxplay-build/lib/libairplay.a
+          - $(SRCROOT)/Vendor/uxplay-build/lib/playfair/libplayfair.a
+          - $(SRCROOT)/Vendor/uxplay-build/lib/llhttp/libllhttp.a
+          - $(SRCROOT)/Vendor/uxplay-build/lib/dns_sd/libdnssd.a
+          - $(HOMEBREW_PREFIX)/opt/openssl@3/lib/libcrypto.a
+          - $(HOMEBREW_PREFIX)/opt/libplist/lib/libplist-2.0.a
+        ENABLE_HARDENED_RUNTIME: YES
+        ENABLE_APP_SANDBOX: NO
+        ENABLE_USER_SCRIPT_SANDBOXING: NO
+        GENERATE_INFOPLIST_FILE: NO
+        CLANG_WARN_DOCUMENTATION_COMMENTS: NO
+        GCC_WARN_UNUSED_FUNCTION: NO
+
+  # Tests run inside the app (scripts/test.sh)
+  MirrorActTests:
+    type: bundle.unit-test
+    platform: macOS
+    configFiles:
+      Debug: Config/Base.xcconfig
+      Release: Config/Base.xcconfig
+    sources:
+      - path: MirrorActTests
+    dependencies:
+      - target: MirrorAct
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.sopitz.MirrorActTests
+        TEST_HOST: $(BUILT_PRODUCTS_DIR)/MirrorAct.app/Contents/MacOS/MirrorAct
+        BUNDLE_LOADER: $(TEST_HOST)
+        GENERATE_INFOPLIST_FILE: YES

@@ -1,0 +1,70 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Record with ${applicationName}" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "Aufnahme mit ${applicationName}",
+              "${applicationName} Aufnahme"
+            ]
+          }
+        },
+        "en" : {
+          "stringSet" : {
+            "state" : "new",
+            "values" : [
+              "Record with ${applicationName}",
+              "${applicationName} recording"
+            ]
+          }
+        },
+        "zh-Hant" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "使用 ${applicationName} 錄影",
+              "${applicationName} 錄影"
+            ]
+          }
+        }
+      }
+    },
+    "Take a screenshot with ${applicationName}" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "Screenshot mit ${applicationName}",
+              "${applicationName} Screenshot"
+            ]
+          }
+        },
+        "en" : {
+          "stringSet" : {
+            "state" : "new",
+            "values" : [
+              "Take a screenshot with ${applicationName}",
+              "${applicationName} screenshot"
+            ]
+          }
+        },
+        "zh-Hant" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "使用 ${applicationName} 截圖",
+              "${applicationName} 截圖"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

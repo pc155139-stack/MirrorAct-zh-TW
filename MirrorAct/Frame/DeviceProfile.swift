@@ -1,0 +1,209 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+import CoreGraphics
+import Foundation
+
+/// Appearance of a device: screen corners, Notch/Dynamic Island/camera hole, Home button.
+/// All ratios are relative to the screen width in portrait.
+/// The tables for this live in `Shared/DeviceProfiles.json`, shared with the other MirrorAct apps.
+struct DeviceProfile: Equatable {
+    enum Family: Equatable { case iPhone, iPad, android }
+
+    enum Cutout: Equatable {
+        case none
+        case notch(width: CGFloat, height: CGFloat)
+        case island(width: CGFloat, height: CGFloat, top: CGFloat)
+        /// round camera hole (Android), center from left/top
+        case hole(centerX: CGFloat, centerY: CGFloat, diameter: CGFloat)
+    }
+
+    var family: Family
+    var marketingName: String?
+    var homeButton: Bool
+    var cutout: Cutout
+    var screenCornerRatio: CGFloat
+    /// screen size in iOS points (portrait), for "Point-Perfect"
+    var pointSize: CGSize?
+    /// physical pixel width and pixel density of the display, for "Life-Size"
+    var nativePixelWidth: CGFloat?
+    var ppi: CGFloat?
+
+    /// Screen width in millimeters (portrait)
+    var physicalWidthMM: CGFloat? {
+        guard let px = nativePixelWidth, let ppi, ppi > 0 else { return nil }
+        return px / ppi * 25.4
+    }
+
+    var displayName: String {
+        if let marketingName { return marketingName }
+        switch family {
+        case .iPhone: return "iPhone"
+        case .iPad: return "iPad"
+        case .android: return "Android"
+        }
+    }
+
+    // MARK: Shared table
+
+    /// Contents of `Shared/DeviceProfiles.json`, decoded once. The app cannot work without the
+    /// table, so an error while loading aborts hard.
+    private static let table: DeviceProfileTable = {
+        let url: URL
+        if let bundled = Bundle.main.url(forResource: "DeviceProfiles", withExtension: "json") {
+            url = bundled
+        } else if let path = ProcessInfo.processInfo.environment["MIRRORACT_DEVICE_PROFILES"], !path.isEmpty {
+            url = URL(fileURLWithPath: path)
+        } else {
+            fatalError("DeviceProfiles.json is missing: neither bundled as a resource nor named in MIRRORACT_DEVICE_PROFILES")
+        }
+        let table: DeviceProfileTable
+        do {
+            table = try JSONDecoder().decode(DeviceProfileTable.self, from: Data(contentsOf: url))
+        } catch {
+            fatalError("Cannot read the device profiles \(url.path): \(error)")
+        }
+        if let problem = table.problem {
+            fatalError("Malformed device profiles \(url.path): \(problem)")
+        }
+        return table
+    }()
+
+    private static func cutout(_ name: String) -> Cutout {
+        // Presence was checked while loading
+        table.cutouts[name]!.cutout
+    }
+
+    private static func phone(_ name: String?, _ cutout: Cutout, corner: CGFloat, points: CGSize?,
+                              pixels: CGFloat? = nil, ppi: CGFloat? = nil) -> DeviceProfile {
+        DeviceProfile(family: .iPhone, marketingName: name, homeButton: false, cutout: cutout,
+                      screenCornerRatio: corner, pointSize: points,
+                      nativePixelWidth: pixels ?? points.map { $0.width * 3 },
+                      ppi: ppi ?? table.fallbacks.defaultPhonePpi)
+    }
+
+    private static func homeButtonPhone(_ name: String?, points: CGSize?, pixels: CGFloat? = nil,
+                                        ppi: CGFloat? = nil) -> DeviceProfile {
+        DeviceProfile(family: .iPhone, marketingName: name, homeButton: true, cutout: .none,
+                      screenCornerRatio: 0, pointSize: points,
+                      nativePixelWidth: pixels ?? points.map { $0.width * 2 },
+                      ppi: ppi ?? table.fallbacks.defaultHomeButtonPhonePpi)
+    }
+
+    private static func pad(_ name: String?, homeButton: Bool, corner: CGFloat, points: CGSize?,
+                            ppi: CGFloat? = nil) -> DeviceProfile {
+        DeviceProfile(family: .iPad, marketingName: name, homeButton: homeButton, cutout: .none,
+                      screenCornerRatio: homeButton ? 0 : corner, pointSize: points,
+                      nativePixelWidth: points.map { $0.width * 2 },
+                      ppi: ppi ?? table.fallbacks.defaultPadPpi)
+    }
+
+    /// Table entry → profile; `pixels` is the screen size for entries with `scale` instead of `points`
+    private static func profile(_ entry: DeviceProfileTable.Entry, pixels: (width: Int, height: Int)? = nil) -> DeviceProfile {
+        // Names are in English in the table; the String Catalog translates the ones it knows
+        let name = entry.name.map { String(localized: String.LocalizationValue($0)) }
+        var points = entry.points.map { CGSize(width: $0[0], height: $0[1]) }
+        if points == nil, let scale = entry.scale, let pixels {
+            points = CGSize(width: CGFloat(pixels.width) / scale, height: CGFloat(pixels.height) / scale)
+        }
+        if entry.family == .iPad {
+            return pad(name, homeButton: entry.homeButton, corner: entry.corner, points: points, ppi: entry.ppi)
+        }
+        if entry.homeButton {
+            return homeButtonPhone(name, points: points, pixels: entry.pixels, ppi: entry.ppi)
+        }
+        return phone(name, entry.cutout.map(cutout) ?? .none, corner: entry.corner, points: points,
+                     pixels: entry.pixels, ppi: entry.ppi)
+    }
+
+    /// Android device from its own data (pixels, dpi bucket, cutout, corner radius)
+    static func android(name: String?, screenPixels: CGSize? = nil, densityDpi: CGFloat? = nil, ppi: CGFloat? = nil,
+                        cutoutRect: CGRect? = nil, cornerRadius: CGFloat? = nil) -> DeviceProfile {
+        let defaults = table.android
+        var cutout = Cutout.hole(centerX: defaults.hole.centerX, centerY: defaults.hole.centerY, diameter: defaults.hole.diameter)
+        var corner = defaults.corner
+        var points: CGSize?
+        if let pixels = screenPixels, pixels.width > 0 {
+            let W = pixels.width
+            if let rect = cutoutRect, rect.width > 0, rect.height > 0 {
+                // free-standing and square: the hole itself; touching the edge or taller than wide:
+                // a bounding area with margin, the hole is smaller
+                let square = abs(rect.width - rect.height) < 0.2 * max(rect.width, rect.height)
+                let diameter = min(rect.width, rect.height) * (square && rect.minY > 0 ? 1 : 0.65)
+                cutout = .hole(centerX: rect.midX / W, centerY: rect.midY / W, diameter: diameter / W)
+            }
+            if let cornerRadius, cornerRadius > 0 { corner = cornerRadius / W }
+            if let densityDpi, densityDpi > 0 {
+                points = CGSize(width: pixels.width * 160 / densityDpi, height: pixels.height * 160 / densityDpi)
+            }
+        }
+        return DeviceProfile(family: .android, marketingName: name, homeButton: false, cutout: cutout,
+                             screenCornerRatio: corner, pointSize: points, nativePixelWidth: screenPixels?.width,
+                             ppi: ppi)
+    }
+
+    /// Model identifier (e.g. "iPhone14,2") → profile
+    static func forModelIdentifier(_ identifier: String) -> DeviceProfile? {
+        if let entry = table.models[identifier] {
+            return profile(entry)
+        }
+        let fallbacks = table.fallbacks
+        if identifier.hasPrefix("android") {
+            return android(name: nil)
+        }
+        if identifier.hasPrefix("iPad") {
+            return pad(nil, homeButton: false, corner: fallbacks.iPadCorner, points: nil)
+        }
+        // newer iPhones not listed here have a Dynamic Island
+        if identifier.hasPrefix("iPhone"),
+           let major = Int(identifier.dropFirst(6).split(separator: ",").first ?? ""), major >= fallbacks.islandFromMajor {
+            return phone(nil, cutout("island"), corner: fallbacks.islandCorner, points: nil)
+        }
+        return nil
+    }
+
+    /// Screen resolution in pixels (any orientation) → profile
+    static func forScreenPixels(_ size: CGSize) -> DeviceProfile? {
+        let w = Int(min(size.width, size.height).rounded()), h = Int(max(size.width, size.height).rounded())
+        guard let entry = table.byPixels["\(w)x\(h)"] else { return nil }
+        return profile(entry, pixels: (w, h))
+    }
+
+    /// Fallback by aspect ratio (e.g. scaled AirPlay streams)
+    static func forAspect(_ size: CGSize) -> DeviceProfile {
+        let ratio = max(size.width, size.height) / max(1, min(size.width, size.height))
+        let aspect = table.byAspect
+        if ratio < aspect.padBelow {
+            return pad(nil, homeButton: ratio < aspect.padHomeBelow, corner: table.fallbacks.iPadCorner, points: nil)
+        }
+        if ratio < aspect.homeButtonPhoneBelow {
+            return homeButtonPhone(nil, points: nil)
+        }
+        return phone(nil, cutout("island"), corner: aspect.islandCorner, points: nil)
+    }
+
+    /// Choices in the editor (newest first); "auto" = by resolution
+    static let selectableModels: [(id: String, name: String)] = {
+        var list = table.selectable.models.compactMap { id in
+            forModelIdentifier(id)?.marketingName.map { (id: id, name: $0) }
+        }
+        for pad in table.selectable.pads {
+            list.append((id: pad.id, name: String(localized: String.LocalizationValue(pad.name))))
+        }
+        return list
+    }()
+
+    static func profile(forSelection id: String) -> DeviceProfile? {
+        if let generic = table.selectable.pads.first(where: { $0.id == id }) {
+            return pad("iPad", homeButton: generic.homeButton, corner: generic.corner, points: nil)
+        }
+        return forModelIdentifier(id)
+    }
+
+    /// Best available profile
+    static func resolve(modelIdentifier: String?, screenPixels: CGSize?, frameSize: CGSize) -> DeviceProfile {
+        var profile: DeviceProfile?
+        if let id = modelIdentifier { profile = forModelIdentifier(id) }
+        if profile == nil, let px = screenPixels { profile = forScreenPixels(px) }
+        if profile == nil { profile = forScreenPixels(frameSize) }
+        return profile ?? forAspect(frameSize)
+    }
+}

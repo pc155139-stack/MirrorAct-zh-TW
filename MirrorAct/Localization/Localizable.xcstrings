@@ -1,0 +1,4779 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {},
+    " · mirroring wirelessly" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " · spiegelt kabellos"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " · 正在無線鏡像"
+          }
+        }
+      }
+    },
+    "Control was interrupted: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bedienung unterbrochen: %@"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "控制已中斷：%@"
+          }
+        }
+      }
+    },
+    "iPhone and iPad control" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bedienung von iPhone und iPad"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone 與 iPad 控制"
+          }
+        }
+      }
+    },
+    "no details" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "keine Details"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "沒有詳細資訊"
+          }
+        }
+      }
+    },
+    "Otherwise click “Control” in the mirror window. Needs Xcode and Developer Mode on the device." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonst im Spiegelfenster auf «Bedienen» klicken. Braucht Xcode und den Entwicklermodus auf dem Gerät."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "也可以在鏡像視窗按「控制」。需要 Xcode，且裝置須啟用開發者模式。"
+          }
+        }
+      }
+    },
+    "Start control when a device connects" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bedienung beim Verbinden starten"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "裝置連線時開始控制"
+          }
+        }
+      }
+    },
+    "The agent could not be started on the device:\n%@\n\nFull output: ~/Library/Logs/MirrorAct-Agent.log" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Agent konnte auf dem Gerät nicht gestartet werden:\n%@\n\nVollständige Ausgabe: ~/Library/Logs/MirrorAct-Agent.log"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法在裝置上啟動代理程式：\n%@\n\n完整輸出：~/Library/Logs/MirrorAct-Agent.log"
+          }
+        }
+      }
+    },
+    "The agent did not open a session." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Agent hat keine Sitzung geöffnet."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "代理程式未建立連線。"
+          }
+        }
+      }
+    },
+    "The agent is not built yet: run scripts/build-agent.sh in the MirrorAct folder. Also needs Xcode and Developer Mode on the device." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Agent ist noch nicht gebaut: im MirrorAct-Ordner scripts/build-agent.sh ausführen. Braucht ausserdem Xcode und den Entwicklermodus auf dem Gerät."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "尚未建置代理程式：請在 MirrorAct 資料夾執行 scripts/build-agent.sh。Mac 須安裝 Xcode，裝置須啟用開發者模式。"
+          }
+        }
+      }
+    },
+    "the agent on the device stopped" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "der Agent auf dem Gerät wurde beendet"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "裝置上的代理程式已停止"
+          }
+        }
+      }
+    },
+    "The agent started, but the Mac can’t reach it." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Agent läuft, aber der Mac erreicht ihn nicht."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "代理程式已啟動，但 Mac 無法連線。"
+          }
+        }
+      }
+    },
+    "The control agent is not built yet. In the MirrorAct folder, run: scripts/build-agent.sh" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Agent für die Bedienung ist noch nicht gebaut. Im MirrorAct-Ordner ausführen: scripts/build-agent.sh"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "尚未建置控制代理程式。請在 MirrorAct 資料夾執行：scripts/build-agent.sh"
+          }
+        }
+      }
+    },
+    "Trust the developer certificate on the device: Settings → General → VPN & Device Management." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dem Entwicklerzertifikat auf dem Gerät vertrauen: Einstellungen → Allgemein → VPN & Geräteverwaltung."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請在裝置上信任開發者憑證：設定 → 一般 → VPN 與裝置管理。"
+          }
+        }
+      }
+    },
+    "Turn on Developer Mode on the device: Settings → Privacy & Security → Developer Mode. The device restarts; confirm afterwards." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entwicklermodus auf dem Gerät einschalten: Einstellungen → Datenschutz & Sicherheit → Entwicklermodus. Das Gerät startet neu; danach bestätigen."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請在裝置上開啟開發者模式：設定 → 隱私權與安全性 → 開發者模式。裝置會重新啟動，之後請再次確認。"
+          }
+        }
+      }
+    },
+    "Turn on UI automation on the device: Settings → Developer → Enable UI Automation." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UI-Automatisierung auf dem Gerät einschalten: Einstellungen → Entwickler → UI-Automatisierung aktivieren."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請在裝置上開啟 UI 自動化：設定 → 開發者 → 啟用 UI 自動化。"
+          }
+        }
+      }
+    },
+    "Unlock the device and try again." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerät entsperren und noch einmal versuchen."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請解鎖裝置後再試一次。"
+          }
+        }
+      }
+    },
+    "Xcode (xcodebuild) could not be started." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xcode (xcodebuild) konnte nicht gestartet werden."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法啟動 Xcode（xcodebuild）。"
+          }
+        }
+      }
+    },
+    "Xcode can’t reach the device. Connect it by cable and unlock it." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xcode erreicht das Gerät nicht. Per Kabel verbinden und entsperren."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xcode 無法連接裝置。請使用傳輸線連接並解鎖裝置。"
+          }
+        }
+      }
+    },
+    "Xcode doesn’t know “%@” yet. Connect it by cable once, unlock it and trust this Mac." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xcode kennt «%@» noch nicht. Einmal per Kabel verbinden, entsperren und diesem Mac vertrauen."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xcode 尚未辨識「%@」。請先用傳輸線連接、解鎖裝置，並信任這部 Mac。"
+          }
+        }
+      }
+    },
+    "%@ can’t be controlled" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ lässt sich nicht bedienen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法控制 %@"
+          }
+        }
+      }
+    },
+    "%@ can’t be switched to Wi-Fi" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ lässt sich nicht auf WLAN umstellen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法將 %@ 切換至 Wi-Fi"
+          }
+        }
+      }
+    },
+    "adb is missing on this Mac. Install it in Terminal with: brew install android-platform-tools" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "adb fehlt auf diesem Mac. Im Terminal installieren mit: brew install android-platform-tools"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "這部 Mac 尚未安裝 adb。請在終端機執行：brew install android-platform-tools"
+          }
+        }
+      }
+    },
+    "adb not found" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "adb nicht gefunden"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "找不到 adb"
+          }
+        }
+      }
+    },
+    "Allow USB debugging" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "USB-Debugging erlauben"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "允許 USB 偵錯"
+          }
+        }
+      }
+    },
+    "Allow USB debugging on %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "USB-Debugging auf %@ erlauben"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 %@ 上允許 USB 偵錯"
+          }
+        }
+      }
+    },
+    "Android" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Android"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Android"
+          }
+        }
+      }
+    },
+    "Back" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurück"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "返回"
+          }
+        }
+      }
+    },
+    "Connect" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verbinden"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "連接"
+          }
+        }
+      }
+    },
+    "Connect the phone to the Mac and unlock it." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Telefon mit dem Mac verbinden und entsperren."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請將手機連接 Mac 並解鎖。"
+          }
+        }
+      }
+    },
+    "Connected by cable? Right-click the phone → “Use Wi-Fi Instead of Cable”. Without a cable (Android 11 or later): Developer options → Wireless debugging → Pair device with pairing code." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per Kabel verbunden? Rechtsklick auf das Telefon → «WLAN statt Kabel verwenden». Ohne Kabel (ab Android 11): Entwickleroptionen → Kabelloses Debugging → Gerät über einen Kopplungscode koppeln."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已用傳輸線連接？請在手機上按右鍵 →「改用 Wi-Fi 連線」。未接線時（Android 11 或更新版本）：開發人員選項 → 無線偵錯 → 使用配對碼配對裝置。"
+          }
+        }
+      }
+    },
+    "Connected via Wi-Fi – you can unplug the cable" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per WLAN verbunden – das Kabel kann ab"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已透過 Wi-Fi 連線，可以拔除傳輸線"
+          }
+        }
+      }
+    },
+    "Connected – the phone appears in the start window." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verbunden – das Telefon erscheint im Startfenster."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已連接，手機稍後會出現在啟動視窗。"
+          }
+        }
+      }
+    },
+    "Connecting …" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verbinde …"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在連接…"
+          }
+        }
+      }
+    },
+    "Connection to the phone failed" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verbindung zum Telefon fehlgeschlagen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法連接手機"
+          }
+        }
+      }
+    },
+    "Control" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bedienen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "控制"
+          }
+        }
+      }
+    },
+    "Control Device" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerät bedienen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "控制裝置"
+          }
+        }
+      }
+    },
+    "Control it with mouse, trackpad and keyboard; ⌘V pastes the Mac clipboard." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit Maus, Trackpad und Tastatur bedienen; ⌘V fügt die Zwischenablage des Macs ein."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用滑鼠、觸控式軌跡板和鍵盤控制；按 ⌘V 可貼上 Mac 剪貼簿內容。"
+          }
+        }
+      }
+    },
+    "Control the device with mouse and keyboard (⌥⌘C)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerät mit Maus und Tastatur bedienen (⌥⌘C)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用滑鼠和鍵盤控制裝置（⌥⌘C）"
+          }
+        }
+      }
+    },
+    "Disconnected – connect the phone again" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Getrennt – Telefon wieder verbinden"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已中斷連線，請重新連接手機"
+          }
+        }
+      }
+    },
+    "Home" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "主畫面"
+          }
+        }
+      }
+    },
+    "In Settings → Developer options, turn on “USB debugging”." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unter Einstellungen → Entwickleroptionen «USB-Debugging» einschalten."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在「設定 → 開發人員選項」中開啟「USB 偵錯」。"
+          }
+        }
+      }
+    },
+    "IP address & port" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "IP-Adresse & Port"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "IP 位址與連接埠"
+          }
+        }
+      }
+    },
+    "IP address & port (Wireless debugging)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "IP-Adresse & Port (Kabelloses Debugging)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "IP 位址與連接埠（無線偵錯）"
+          }
+        }
+      }
+    },
+    "iPhone & iPad" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone & iPad"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone 與 iPad"
+          }
+        }
+      }
+    },
+    "Mirroring uses adb, the Android debugging tool, and the open source scrcpy server. Nothing is installed permanently on the phone." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Spiegelung nutzt adb, das Debugging-Werkzeug von Android, und den quelloffenen scrcpy-Server. Auf dem Telefon wird nichts dauerhaft installiert."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "鏡像使用 Android 偵錯工具 adb 與開放原始碼的 scrcpy 伺服器，不會在手機上永久安裝任何內容。"
+          }
+        }
+      }
+    },
+    "Not connected" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nicht verbunden"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未連接"
+          }
+        }
+      }
+    },
+    "Notifications" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mitteilungen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通知"
+          }
+        }
+      }
+    },
+    "Offline" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offline"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "離線"
+          }
+        }
+      }
+    },
+    "Once on the phone" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einmalig auf dem Telefon"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "接著在手機上"
+          }
+        }
+      }
+    },
+    "Open Settings → About phone (Samsung: → Software information)." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen → Telefoninfo öffnen (Samsung: → Softwareinformationen)."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開啟「設定 → 關於手機」（Samsung：→ 軟體資訊）。"
+          }
+        }
+      }
+    },
+    "Pair" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Koppeln"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "配對"
+          }
+        }
+      }
+    },
+    "Paired – the phone appears in the start window in a moment. If not, connect with the address shown under Wireless debugging." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gekoppelt – das Telefon erscheint gleich im Startfenster. Sonst mit der Adresse verbinden, die unter «Kabelloses Debugging» steht."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已配對，手機稍後會出現在啟動視窗。若未出現，請使用「無線偵錯」顯示的位址連接。"
+          }
+        }
+      }
+    },
+    "Pairing code" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kopplungscode"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "配對碼"
+          }
+        }
+      }
+    },
+    "Ready via Wi-Fi" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per WLAN bereit"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi 已就緒"
+          }
+        }
+      }
+    },
+    "Recent Apps" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Letzte Apps"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最近使用的 App"
+          }
+        }
+      }
+    },
+    "Rotate" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drehen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "旋轉"
+          }
+        }
+      }
+    },
+    "Screen On/Off" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bildschirm ein/aus"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開啟／關閉螢幕"
+          }
+        }
+      }
+    },
+    "Sound needs Android 11 or later. Protected apps (banking, streaming) stay black." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ton ab Android 11. Geschützte Apps (Banking, Streaming) bleiben schwarz."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "聲音需要 Android 11 或更新版本。受保護的 App（如銀行、串流服務）會顯示黑畫面。"
+          }
+        }
+      }
+    },
+    "Starting control on the device …" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bedienung wird auf dem Gerät gestartet …"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在裝置上啟動控制…"
+          }
+        }
+      }
+    },
+    "Starting …" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Startet …"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在啟動…"
+          }
+        }
+      }
+    },
+    "Tap “Allow” at “Allow USB debugging?” (tick “Always allow from this computer”)." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bei «USB-Debugging zulassen?» auf «Zulassen» tippen («Von diesem Computer immer zulassen» ankreuzen)."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "出現「允許 USB 偵錯？」時，請點選「允許」（並勾選「一律允許這部電腦」）。"
+          }
+        }
+      }
+    },
+    "Tap “Build number” seven times until developer mode is on." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Siebenmal auf «Build-Nummer» tippen, bis der Entwicklermodus an ist."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "連按「版本號碼」七次以啟用開發人員模式。"
+          }
+        }
+      }
+    },
+    "The phone appears in the start window – click it." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Telefon erscheint im Startfenster – anklicken."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "手機會出現在啟動視窗，點選即可開始鏡像。"
+          }
+        }
+      }
+    },
+    "The phone could not start the video" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Telefon konnte das Video nicht starten"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "手機無法開始傳送畫面"
+          }
+        }
+      }
+    },
+    "The phone did not respond" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Telefon antwortet nicht"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "手機沒有回應"
+          }
+        }
+      }
+    },
+    "The phone is not connected to a Wi-Fi network." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Telefon ist mit keinem WLAN verbunden."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "手機尚未連接 Wi-Fi 網路。"
+          }
+        }
+      }
+    },
+    "The scrcpy server is missing from the app (scripts/bootstrap-scrcpy.sh)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der scrcpy-Server fehlt in der App (scripts/bootstrap-scrcpy.sh)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App 中缺少 scrcpy 伺服器（scripts/bootstrap-scrcpy.sh）"
+          }
+        }
+      }
+    },
+    "Unlock the phone and tap “Allow” in the dialog “Allow USB debugging?”. If no dialog appears, unplug the cable and connect it again." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Telefon entsperren und im Dialog «USB-Debugging zulassen?» auf «Zulassen» tippen. Erscheint kein Dialog, das Kabel abziehen und wieder anschliessen."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請解鎖手機，並在「允許 USB 偵錯？」對話框中點選「允許」。若未出現對話框，請拔除傳輸線後重新連接。"
+          }
+        }
+      }
+    },
+    "Use Wi-Fi Instead of Cable" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "WLAN statt Kabel verwenden"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "改用 Wi-Fi 連線"
+          }
+        }
+      }
+    },
+    "Volume Down" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leiser"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "降低音量"
+          }
+        }
+      }
+    },
+    "Volume Up" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lauter"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "提高音量"
+          }
+        }
+      }
+    },
+    "Wi-Fi" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "WLAN"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi"
+          }
+        }
+      }
+    },
+    "“%@”" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«%@»"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「%@」"
+          }
+        }
+      }
+    },
+    "%@ – drag to share, click to edit" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ – ziehen zum Teilen, klicken zum Bearbeiten"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@，拖曳可分享，點選可編輯"
+          }
+        }
+      }
+    },
+    "%@ (Duo).png" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ (Duo).png"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@（雙裝置）.png"
+          }
+        }
+      }
+    },
+    "%@ (Framed).mov" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ (Rahmen).mov"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@（含邊框）.mov"
+          }
+        }
+      }
+    },
+    "%@ (Framed).png" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ (Rahmen).png"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@（含邊框）.png"
+          }
+        }
+      }
+    },
+    "%@ can’t be opened" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ lässt sich nicht öffnen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法開啟 %@"
+          }
+        }
+      }
+    },
+    "%lld" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        }
+      }
+    },
+    "%lld devices via cable" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld Geräte per Kabel"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 部裝置透過傳輸線連接"
+          }
+        }
+      }
+    },
+    "1 device via cable – click to mirror" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 Gerät per Kabel – klicken zum Spiegeln"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 部裝置透過傳輸線連接，點選即可鏡像"
+          }
+        }
+      }
+    },
+    "1 device via cable · mirroring wirelessly" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 Gerät per Kabel · spiegelt kabellos"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 部裝置透過傳輸線連接 · 正在無線鏡像"
+          }
+        }
+      }
+    },
+    "30 fps" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30 Bilder/s"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30 fps"
+          }
+        }
+      }
+    },
+    "60 fps" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "60 Bilder/s"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "60 fps"
+          }
+        }
+      }
+    },
+    "1080 pixels high" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1080 Pixel Höhe"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "高度 1080 像素"
+          }
+        }
+      }
+    },
+    "1440 pixels high" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1440 Pixel Höhe"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "高度 1440 像素"
+          }
+        }
+      }
+    },
+    "2160 pixels high" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2160 Pixel Höhe"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "高度 2160 像素"
+          }
+        }
+      }
+    },
+    "All Settings …" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle Einstellungen …"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "所有設定…"
+          }
+        }
+      }
+    },
+    "Allow HEVC (needed above 1080)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HEVC erlauben (nötig über 1080)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "允許 HEVC（高於 1080 時需要）"
+          }
+        }
+      }
+    },
+    "Always show tools" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Werkzeuge immer zeigen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一律顯示工具"
+          }
+        }
+      }
+    },
+    "Always Show Tools" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Werkzeuge immer zeigen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一律顯示工具"
+          }
+        }
+      }
+    },
+    "Apply and restart" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Übernehmen und neu starten"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "套用並重新啟動"
+          }
+        }
+      }
+    },
+    "Aspect ratio" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Format"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "長寬比"
+          }
+        }
+      }
+    },
+    "Automatic" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatisch"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自動"
+          }
+        }
+      }
+    },
+    "Automatic (by resolution)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatisch (nach Auflösung)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自動（依解析度）"
+          }
+        }
+      }
+    },
+    "Background" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hintergrund"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "背景"
+          }
+        }
+      }
+    },
+    "Background for photos, videos and full screen" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hintergrund für Fotos, Videos und Vollbild"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "照片、影片與全螢幕的背景"
+          }
+        }
+      }
+    },
+    "Background, padding and aspect ratio come from “Style”. A transparent background produces HEVC with transparency, otherwise H.264. Saved to the Desktop." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hintergrund, Abstand und Format kommen aus «Stil». Bei transparentem Hintergrund entsteht HEVC mit Transparenz, sonst H.264. Ablage: Schreibtisch."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "背景、留白與長寬比由「樣式」設定。透明背景會輸出含透明度的 HEVC，其他情況則為 H.264。檔案儲存在桌面。"
+          }
+        }
+      }
+    },
+    "Black" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schwarz"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "黑色"
+          }
+        }
+      }
+    },
+    "Blue" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blau"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "藍色"
+          }
+        }
+      }
+    },
+    "Cable" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per Kabel"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "傳輸線"
+          }
+        }
+      }
+    },
+    "Cable disconnected" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kabel getrennt"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "傳輸線已中斷連接"
+          }
+        }
+      }
+    },
+    "Cable not connected" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kabel nicht verbunden"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "傳輸線未連接"
+          }
+        }
+      }
+    },
+    "Cable or Wi-Fi – how it works" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kabel oder WLAN – so geht's"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "傳輸線或 Wi-Fi：連線方式"
+          }
+        }
+      }
+    },
+    "Cable: connect and unlock the iPhone, then choose this again.\n\nWireless: on the iPhone, open Control Center → Screen Mirroring → “%@”. Code: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per Kabel: iPhone anschliessen und entsperren, dann hier erneut wählen.\n\nKabellos: Auf dem iPhone Kontrollzentrum → Bildschirmsynchronisierung → «%1$@» wählen. Code: %2$@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Cable: connect and unlock the iPhone, then choose this again.\n\nWireless: on the iPhone, open Control Center → Screen Mirroring → “%1$@”. Code: %2$@"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "傳輸線：連接並解鎖 iPhone，再次選取此選項。\n\n無線：在 iPhone 開啟「控制中心 → 螢幕鏡像輸出」，選擇「%@」。代碼：%@"
+          }
+        }
+      }
+    },
+    "Camera access required" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kamerazugriff nötig"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "需要相機存取權限"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbrechen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消"
+          }
+        }
+      }
+    },
+    "Choose “%@”." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«%@» wählen."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選擇「%@」。"
+          }
+        }
+      }
+    },
+    "Choose background image" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hintergrundbild wählen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選擇背景圖片"
+          }
+        }
+      }
+    },
+    "Choose Image …" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bild wählen …"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選擇圖片…"
+          }
+        }
+      }
+    },
+    "Choose in Control Center:" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Im Kontrollzentrum wählen:"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在控制中心選擇："
+          }
+        }
+      }
+    },
+    "Choose screenshots (one, or two for a duo) or a screen recording" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Screenshots (eins, oder zwei für Duo) oder eine Bildschirmaufnahme wählen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選擇截圖（單張或兩張並排）或螢幕錄影"
+          }
+        }
+      }
+    },
+    "Click: screenshot to the Desktop · ⌥-click: copy · Drag: straight into an app" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klick: Screenshot auf den Schreibtisch · ⌥-Klick: kopieren · Ziehen: direkt in eine App"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點選：將截圖存到桌面 · 按住 ⌥ 點選：複製 · 拖曳：直接放入 App"
+          }
+        }
+      }
+    },
+    "Close" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schliessen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "關閉"
+          }
+        }
+      }
+    },
+    "Close Window" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fenster schliessen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "關閉視窗"
+          }
+        }
+      }
+    },
+    "CODE" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "CODE"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "代碼"
+          }
+        }
+      }
+    },
+    "Code (4 digits)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Code (4 Ziffern)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "代碼（4 位數）"
+          }
+        }
+      }
+    },
+    "Code on first connection: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Code beim ersten Verbinden: %@"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "首次連線代碼：%@"
+          }
+        }
+      }
+    },
+    "Color" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Farbe"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "顏色"
+          }
+        }
+      }
+    },
+    "Connect a Device" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerät verbinden"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "連接裝置"
+          }
+        }
+      }
+    },
+    "Connect a device by cable or wirelessly" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerät anschliessen oder kabellos verbinden"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用傳輸線或無線方式連接裝置"
+          }
+        }
+      }
+    },
+    "Connect the iPhone or iPad to the Mac." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone oder iPad mit dem Mac verbinden."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "將 iPhone 或 iPad 連接至 Mac。"
+          }
+        }
+      }
+    },
+    "Connecting …\nUnlock the device if needed" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verbinde …\nGerät entsperren, falls nötig"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在透過傳輸線連接…\n必要時請解鎖裝置"
+          }
+        }
+      }
+    },
+    "Connecting via cable …" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verbinde per Kabel …"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在透過傳輸線連接…"
+          }
+        }
+      }
+    },
+    "Copied to the clipboard" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In die Zwischenablage kopiert"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已複製到剪貼簿"
+          }
+        }
+      }
+    },
+    "Copy" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kopieren"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "複製"
+          }
+        }
+      }
+    },
+    "Copy Screenshot" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Screenshot kopieren"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "複製截圖"
+          }
+        }
+      }
+    },
+    "Custom image" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eigenes Bild"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自訂圖片"
+          }
+        }
+      }
+    },
+    "Deep Purple" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dunkellila"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "深紫色"
+          }
+        }
+      }
+    },
+    "Default for screenshots, recordings and presenting (⌃⌘F). The mirror window shows no background. In the editor (⌘E) you can change the style per file." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Standard für Screenshots, Aufnahmen und die Präsentation (⌃⌘F). Im Spiegelfenster bleibt der Hintergrund weg. Im Editor (⌘E) lässt sich der Stil pro Datei ändern."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "截圖、錄影和展示（⌃⌘F）的預設樣式。鏡像視窗不顯示背景。在編輯器（⌘E）中可為個別檔案修改樣式。"
+          }
+        }
+      }
+    },
+    "Device" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerät"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "裝置"
+          }
+        }
+      }
+    },
+    "Device Frame" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerätrahmen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "裝置邊框"
+          }
+        }
+      }
+    },
+    "Direct connection over Apple Wireless (AWDL)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Direktverbindung über Apple-Funk (AWDL)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "透過 Apple Wireless（AWDL）直接連線"
+          }
+        }
+      }
+    },
+    "Disconnect" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trennen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "中斷連線"
+          }
+        }
+      }
+    },
+    "Disconnect Device" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerät trennen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "中斷裝置連線"
+          }
+        }
+      }
+    },
+    "Disconnected" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Getrennt"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已中斷連線"
+          }
+        }
+      }
+    },
+    "Disconnected – choose “%@” on the iPhone again" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Getrennt – auf dem iPhone erneut «%@» wählen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已中斷連線，請在 iPhone 上再次選擇「%@」"
+          }
+        }
+      }
+    },
+    "Done" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fertig"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成"
+          }
+        }
+      }
+    },
+    "Done – no code needed." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fertig – ohne Code."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成，無需輸入代碼。"
+          }
+        }
+      }
+    },
+    "Drag the image out to share it, or save/copy it." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bild herausziehen zum Teilen, oder sichern/kopieren."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拖曳圖片即可分享，或儲存／複製圖片。"
+          }
+        }
+      }
+    },
+    "Duo" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Duo"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "雙裝置"
+          }
+        }
+      }
+    },
+    "Edit" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bearbeiten"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "編輯"
+          }
+        }
+      }
+    },
+    "Edit – %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bearbeiten – %@"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "編輯：%@"
+          }
+        }
+      }
+    },
+    "Edit …" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bearbeiten …"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "編輯…"
+          }
+        }
+      }
+    },
+    "Edit Last File …" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Letzte Datei bearbeiten …"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "編輯上一個檔案…"
+          }
+        }
+      }
+    },
+    "Edit Screenshot or Video …" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Screenshot oder Video bearbeiten …"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "編輯截圖或影片…"
+          }
+        }
+      }
+    },
+    "Enter this code on the iPhone: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Code auf dem iPhone eingeben: %@"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請在 iPhone 輸入此代碼：%@"
+          }
+        }
+      }
+    },
+    "Evening" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abend"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "傍晚"
+          }
+        }
+      }
+    },
+    "Exit Presentation" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Präsentation beenden"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "離開展示"
+          }
+        }
+      }
+    },
+    "Exit Presentation (Esc or ⌃⌘F)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Präsentation beenden (Esc oder ⌃⌘F)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "離開展示（Esc 或 ⌃⌘F）"
+          }
+        }
+      }
+    },
+    "Export failed: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export fehlgeschlagen: %@"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "輸出失敗：%@"
+          }
+        }
+      }
+    },
+    "Export preset not available" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exportprofil nicht verfügbar"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法使用輸出預設值"
+          }
+        }
+      }
+    },
+    "Export: H.264 (.mov), up to 4K" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export: H.264 (.mov), höchstens 4K"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "輸出：H.264（.mov），最高 4K"
+          }
+        }
+      }
+    },
+    "Export: HEVC with transparency (.mov)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export: HEVC mit Transparenz (.mov)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "輸出：含透明度的 HEVC（.mov）"
+          }
+        }
+      }
+    },
+    "Exporting …" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exportiere …"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在輸出…"
+          }
+        }
+      }
+    },
+    "Fit to\nscreen" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bildschirm\nfüllen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "符合\n螢幕"
+          }
+        }
+      }
+    },
+    "Fit to Screen" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An Bildschirm anpassen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "符合螢幕大小"
+          }
+        }
+      }
+    },
+    "Forest" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wald"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "森林"
+          }
+        }
+      }
+    },
+    "Frame ${files}" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "${files} einrahmen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "為 ${files} 加入邊框"
+          }
+        }
+      }
+    },
+    "Frame color" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rahmenfarbe"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "邊框顏色"
+          }
+        }
+      }
+    },
+    "Frame Color" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rahmenfarbe"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "邊框顏色"
+          }
+        }
+      }
+    },
+    "Frame rate" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bildrate"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "影格率"
+          }
+        }
+      }
+    },
+    "Frame Screenshot" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Screenshot einrahmen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "為截圖加入邊框"
+          }
+        }
+      }
+    },
+    "Frame screenshots (also two as a duo) or videos (⌘E)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Screenshots (auch zwei als Duo) oder Videos einrahmen (⌘E)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "為截圖（也可兩張並排）或影片加入邊框（⌘E）"
+          }
+        }
+      }
+    },
+    "Full Screen" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vollbild"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全螢幕"
+          }
+        }
+      }
+    },
+    "General" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allgemein"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一般"
+          }
+        }
+      }
+    },
+    "Gold" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gold"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "金色"
+          }
+        }
+      }
+    },
+    "Gradient" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verlauf"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "漸層"
+          }
+        }
+      }
+    },
+    "Graphite" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Graphit"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "石墨色"
+          }
+        }
+      }
+    },
+    "If “%@” does not appear: turn on AirPlay Receiver in macOS under General → AirDrop & Handoff. Keep Wi-Fi and Bluetooth on the device turned on." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erscheint «%@» nicht: in macOS unter Allgemein → AirDrop & Handoff den AirPlay-Empfänger einschalten. WLAN und Bluetooth am Gerät eingeschaltet lassen."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果未顯示「%@」，請在 macOS「一般 → AirDrop 與接力」中開啟 AirPlay 接收器，並保持裝置的 Wi-Fi 與藍牙開啟。"
+          }
+        }
+      }
+    },
+    "Image" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bild"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "圖片"
+          }
+        }
+      }
+    },
+    "iPad (with Home button)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPad (mit Home-Button)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPad（有主畫面按鈕）"
+          }
+        }
+      }
+    },
+    "iPad (without Home button)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPad (ohne Home-Button)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPad（無主畫面按鈕）"
+          }
+        }
+      }
+    },
+    "iPhone SE (2nd generation)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone SE (2. Gen.)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone SE（第 2 代）"
+          }
+        }
+      }
+    },
+    "iPhone SE (3rd generation)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone SE (3. Gen.)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone SE（第 3 代）"
+          }
+        }
+      }
+    },
+    "Keep on top" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Immer im Vordergrund"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "視窗置頂"
+          }
+        }
+      }
+    },
+    "Keep on Top" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Immer im Vordergrund"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "視窗置頂"
+          }
+        }
+      }
+    },
+    "Keep on top (⌘T)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Immer im Vordergrund (⌘T)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "視窗置頂（⌘T）"
+          }
+        }
+      }
+    },
+    "Language" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sprache"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "語言"
+          }
+        }
+      }
+    },
+    "Larger" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grösser"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "放大"
+          }
+        }
+      }
+    },
+    "Latest" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zuletzt"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最新"
+          }
+        }
+      }
+    },
+    "Life-\nsize" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lebens-\ngross"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "實體\n尺寸"
+          }
+        }
+      }
+    },
+    "Life-Size" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lebensgross"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "實體尺寸"
+          }
+        }
+      }
+    },
+    "Life-size: size of the display or device unknown" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lebensgross: Grösse des Monitors oder Geräts unbekannt"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法判定顯示器或裝置尺寸，不能使用實體尺寸。"
+          }
+        }
+      }
+    },
+    "Light" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hell"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "淺色"
+          }
+        }
+      }
+    },
+    "Lilac" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flieder"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "淡紫色"
+          }
+        }
+      }
+    },
+    "Lowest latency. Other apps such as QuickTime must not have the device open at the same time." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geringste Verzögerung. Andere Apps wie QuickTime dürfen das Gerät nicht gleichzeitig geöffnet haben."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "延遲最低。QuickTime 等其他 App 不可同時開啟這部裝置。"
+          }
+        }
+      }
+    },
+    "macOS provides the screen of an iPhone connected by cable like a camera. Please allow MirrorAct under Privacy & Security → Camera." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS stellt den Bildschirm eines per Kabel verbundenen iPhones wie eine Kamera bereit. Bitte MirrorAct unter Datenschutz & Sicherheit → Kamera erlauben."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS 會將透過傳輸線連接的 iPhone 畫面當作相機來源。請在「隱私權與安全性 → 相機」中允許 MirrorAct。"
+          }
+        }
+      }
+    },
+    "Mirror" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spiegeln"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "鏡像"
+          }
+        }
+      }
+    },
+    "Mirror %@ wirelessly" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ kabellos spiegeln"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無線鏡像 %@"
+          }
+        }
+      }
+    },
+    "Mirror iPhone or iPad …" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone oder iPad spiegeln …"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "鏡像 iPhone 或 iPad…"
+          }
+        }
+      }
+    },
+    "MirrorAct" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MirrorAct"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MirrorAct"
+          }
+        }
+      }
+    },
+    "Mirroring" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wird gespiegelt"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在鏡像"
+          }
+        }
+      }
+    },
+    "Mirroring wirelessly" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spiegelt kabellos"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在無線鏡像"
+          }
+        }
+      }
+    },
+    "Model" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modell"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "機型"
+          }
+        }
+      }
+    },
+    "Muted" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stumm"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已靜音"
+          }
+        }
+      }
+    },
+    "Name on the iPhone" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name auf dem iPhone"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone 上顯示的名稱"
+          }
+        }
+      }
+    },
+    "Natural Titanium" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Titan Natur"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "原色鈦金屬"
+          }
+        }
+      }
+    },
+    "Needed when the iPhone does not find the Mac on Wi-Fi. Asks for a code on first connection." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nötig, wenn das iPhone den Mac im WLAN nicht findet. Verlangt beim ersten Verbinden einen Code."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "當 iPhone 在 Wi-Fi 上找不到 Mac 時需要此功能。首次連線時會要求輸入代碼。"
+          }
+        }
+      }
+    },
+    "No device connected by cable" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kein Gerät per Kabel verbunden"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "沒有透過傳輸線連接的裝置"
+          }
+        }
+      }
+    },
+    "No device is being mirrored right now." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kein Gerät wird gerade gespiegelt."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "目前沒有鏡像中的裝置。"
+          }
+        }
+      }
+    },
+    "No image chosen" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kein Bild gewählt"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "尚未選擇圖片"
+          }
+        }
+      }
+    },
+    "No readable images were passed." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine lesbaren Bilder übergeben."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未收到可讀取的圖片。"
+          }
+        }
+      }
+    },
+    "No video to record yet" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Noch kein Bild zum Aufnehmen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "目前沒有可錄製的畫面"
+          }
+        }
+      }
+    },
+    "Ocean" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ozean"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "海洋"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "好"
+          }
+        }
+      }
+    },
+    "On the device: Control Center → Screen Mirroring → “%@”." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auf dem Gerät: Kontrollzentrum → Bildschirmsynchronisierung → «%@»."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在裝置上開啟「控制中心 → 螢幕鏡像輸出」，選擇「%@」。"
+          }
+        }
+      }
+    },
+    "On Top" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oben"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "置頂"
+          }
+        }
+      }
+    },
+    "Open Control Center on the device." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auf dem Gerät das Kontrollzentrum öffnen."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在裝置上開啟控制中心。"
+          }
+        }
+      }
+    },
+    "Open Settings" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen öffnen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開啟設定"
+          }
+        }
+      }
+    },
+    "Padding" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abstand"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "留白"
+          }
+        }
+      }
+    },
+    "Perspective" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perspektive"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "透視"
+          }
+        }
+      }
+    },
+    "Photo" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foto"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "照片"
+          }
+        }
+      }
+    },
+    "Pixel-\nperfect" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pixel-\ngenau"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "像素\n對應"
+          }
+        }
+      }
+    },
+    "Pixel-Perfect" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pixelgenau"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "像素對應"
+          }
+        }
+      }
+    },
+    "Play sound" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ton wiedergeben"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "播放聲音"
+          }
+        }
+      }
+    },
+    "Play Sound" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ton wiedergeben"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "播放聲音"
+          }
+        }
+      }
+    },
+    "Point-\nperfect" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Punkt-\ngenau"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點數\n對應"
+          }
+        }
+      }
+    },
+    "Point-Perfect" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Punktgenau"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點數對應"
+          }
+        }
+      }
+    },
+    "Point-Perfect (as on the iPhone)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Punktgenau (wie auf dem iPhone)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點數對應（與 iPhone 上相同）"
+          }
+        }
+      }
+    },
+    "Pose" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pose"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "姿態"
+          }
+        }
+      }
+    },
+    "Present" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Präsentieren"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "展示"
+          }
+        }
+      }
+    },
+    "Present full screen (⌃⌘F, Esc to exit)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Präsentieren (⌃⌘F, Esc beendet)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全螢幕展示（⌃⌘F，按 Esc 離開）"
+          }
+        }
+      }
+    },
+    "Puts iPhone or iPad screenshots into the device frame, using the style from MirrorAct (frame color, background, aspect ratio)." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Setzt iPhone- oder iPad-Screenshots in den Gerätrahmen, mit der Gestaltung aus MirrorAct (Rahmenfarbe, Hintergrund, Format)."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "將 iPhone 或 iPad 截圖置入裝置邊框，使用 MirrorAct 的樣式（邊框顏色、背景、長寬比）。"
+          }
+        }
+      }
+    },
+    "Ready via cable" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per Kabel bereit"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "傳輸線已就緒"
+          }
+        }
+      }
+    },
+    "Receiver failed – see the log" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Empfang fehlgeschlagen – Details im Log"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "接收器失敗，請查看記錄"
+          }
+        }
+      }
+    },
+    "Record" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aufnahme"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "錄影"
+          }
+        }
+      }
+    },
+    "Record video (⌘R)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Video aufnehmen (⌘R)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "錄影（⌘R）"
+          }
+        }
+      }
+    },
+    "Record with device frame" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit Gerätrahmen aufnehmen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "錄影時包含裝置邊框"
+          }
+        }
+      }
+    },
+    "Record with Device Frame" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aufnahme mit Gerätrahmen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "錄影時包含裝置邊框"
+          }
+        }
+      }
+    },
+    "Recording" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aufnahme"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "錄影"
+          }
+        }
+      }
+    },
+    "Recording failed" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aufnahme fehlgeschlagen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "錄影失敗"
+          }
+        }
+      }
+    },
+    "Recording saved – drag it out to share" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aufnahme gesichert – zum Teilen herausziehen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "錄影已儲存，拖曳即可分享"
+          }
+        }
+      }
+    },
+    "Recording started" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aufnahme läuft"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已開始錄影"
+          }
+        }
+      }
+    },
+    "Recording stopped" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aufnahme beendet"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已停止錄影"
+          }
+        }
+      }
+    },
+    "Resolution" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auflösung"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "解析度"
+          }
+        }
+      }
+    },
+    "Restart" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neu starten"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新啟動"
+          }
+        }
+      }
+    },
+    "Restart Now" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jetzt neu starten"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "立即重新啟動"
+          }
+        }
+      }
+    },
+    "Save …" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sichern …"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "儲存…"
+          }
+        }
+      }
+    },
+    "Save Screenshot" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Screenshot sichern"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "儲存截圖"
+          }
+        }
+      }
+    },
+    "Save Screenshot to Desktop" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Screenshot auf den Schreibtisch"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "將截圖存到桌面"
+          }
+        }
+      }
+    },
+    "Save Video …" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Video sichern …"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "儲存影片…"
+          }
+        }
+      }
+    },
+    "Saved to the Desktop" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auf dem Schreibtisch gesichert"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已儲存到桌面"
+          }
+        }
+      }
+    },
+    "Saved: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gesichert: %@"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已儲存：%@"
+          }
+        }
+      }
+    },
+    "Saving failed" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sichern fehlgeschlagen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "儲存失敗"
+          }
+        }
+      }
+    },
+    "Screen only" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nur Bildschirm"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "僅顯示螢幕"
+          }
+        }
+      }
+    },
+    "Screenshot from iPhone" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Screenshot vom iPhone"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone 截圖"
+          }
+        }
+      }
+    },
+    "Screenshot of the device currently mirrored, using the style from MirrorAct." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Screenshot des gerade gespiegelten Geräts, mit der Gestaltung aus MirrorAct."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用 MirrorAct 樣式擷取目前鏡像裝置的畫面。"
+          }
+        }
+      }
+    },
+    "Screenshots" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Screenshots"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "截圖"
+          }
+        }
+      }
+    },
+    "Settings (⌘,)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen (⌘,)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定（⌘,）"
+          }
+        }
+      }
+    },
+    "Shadow" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schatten"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "陰影"
+          }
+        }
+      }
+    },
+    "Share" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Teilen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分享"
+          }
+        }
+      }
+    },
+    "Show" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anzeigen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "顯示"
+          }
+        }
+      }
+    },
+    "Show device frame" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerätrahmen anzeigen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "顯示裝置邊框"
+          }
+        }
+      }
+    },
+    "Show Device Frame" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerätrahmen anzeigen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "顯示裝置邊框"
+          }
+        }
+      }
+    },
+    "Show in Finder" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Im Finder zeigen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 Finder 中顯示"
+          }
+        }
+      }
+    },
+    "Side by side" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nebeneinander"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "並排"
+          }
+        }
+      }
+    },
+    "Silver" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Silber"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "銀色"
+          }
+        }
+      }
+    },
+    "Size" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grösse"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大小"
+          }
+        }
+      }
+    },
+    "Smaller" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kleiner"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "縮小"
+          }
+        }
+      }
+    },
+    "Sound" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ton"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "聲音"
+          }
+        }
+      }
+    },
+    "Source" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quelle"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "來源"
+          }
+        }
+      }
+    },
+    "Staggered" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versetzt"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "錯位排列"
+          }
+        }
+      }
+    },
+    "Start / Stop Recording" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Video aufnehmen / beenden"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開始／停止錄影"
+          }
+        }
+      }
+    },
+    "Start or Stop Recording" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aufnahme starten oder beenden"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開始或停止錄影"
+          }
+        }
+      }
+    },
+    "Start Recording" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Video aufnehmen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開始錄影"
+          }
+        }
+      }
+    },
+    "Start/Stop Recording" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aufnahme starten/beenden"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開始／停止錄影"
+          }
+        }
+      }
+    },
+    "Starts or stops the video recording of the mirrored device." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Startet bzw. beendet die Videoaufnahme des gespiegelten Geräts."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開始或停止錄製鏡像裝置的影片。"
+          }
+        }
+      }
+    },
+    "Stop Recording" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aufnahme beenden"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "停止錄影"
+          }
+        }
+      }
+    },
+    "Stop recording (⌘R)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aufnahme beenden (⌘R)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "停止錄影（⌘R）"
+          }
+        }
+      }
+    },
+    "Style" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stil"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "樣式"
+          }
+        }
+      }
+    },
+    "Style …" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stil …"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "樣式…"
+          }
+        }
+      }
+    },
+    "System language" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Systemsprache"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "系統語言"
+          }
+        }
+      }
+    },
+    "Takes effect after a restart." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wird nach einem Neustart wirksam."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新啟動後生效。"
+          }
+        }
+      }
+    },
+    "Tap “Screen Mirroring”." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Bildschirmsynchronisierung» tippen."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點選「螢幕鏡像輸出」。"
+          }
+        }
+      }
+    },
+    "The device appears in the start window – click it." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Gerät erscheint im Startfenster – anklicken."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "裝置會出現在啟動視窗，點選即可開始鏡像。"
+          }
+        }
+      }
+    },
+    "The device is already open in another app (such as QuickTime)." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Gerät ist bereits in einer anderen App geöffnet (z. B. QuickTime)."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "這部裝置已由其他 App（例如 QuickTime）開啟。"
+          }
+        }
+      }
+    },
+    "The file contains no video track." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Datei enthält keine Videospur."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "檔案沒有影片軌。"
+          }
+        }
+      }
+    },
+    "The first time, allow camera access for MirrorAct." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beim ersten Mal den Kamerazugriff für MirrorAct erlauben."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "第一次使用時，請允許 MirrorAct 存取相機。"
+          }
+        }
+      }
+    },
+    "The first time, enter the code %@." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beim ersten Mal den Code %@ eingeben."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "第一次使用時，請輸入代碼 %@。"
+          }
+        }
+      }
+    },
+    "The recording could not be started." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Aufnahme konnte nicht gestartet werden."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法開始錄影。"
+          }
+        }
+      }
+    },
+    "Tilted" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gekippt"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "傾斜"
+          }
+        }
+      }
+    },
+    "Transparent" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Transparent"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "透明"
+          }
+        }
+      }
+    },
+    "Trim …" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kürzen …"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "修剪…"
+          }
+        }
+      }
+    },
+    "Trim with “Trim …”; the preview shows half resolution." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kürzen über «Kürzen …»; die Vorschau zeigt halbe Auflösung."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用「修剪…」調整片段；預覽畫質為原解析度的一半。"
+          }
+        }
+      }
+    },
+    "Unlock the device and confirm “Trust This Computer”." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerät entsperren und «Diesem Computer vertrauen» bestätigen."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請解鎖裝置，並確認「信任這部電腦」。"
+          }
+        }
+      }
+    },
+    "Use as Default" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Als Standard übernehmen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設為預設值"
+          }
+        }
+      }
+    },
+    "Used as default" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Als Standard übernommen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已設為預設值"
+          }
+        }
+      }
+    },
+    "Video" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Video"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "影片"
+          }
+        }
+      }
+    },
+    "Waiting for video …" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warte auf Bild …"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在等待畫面…"
+          }
+        }
+      }
+    },
+    "Window" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fenster"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "視窗"
+          }
+        }
+      }
+    },
+    "Wireless" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kabellos"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無線"
+          }
+        }
+      }
+    },
+    "Wireless receiver (AirPlay)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kabelloser Empfang (AirPlay)"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無線接收器（AirPlay）"
+          }
+        }
+      }
+    },
+    "Wireless receiver off" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kabelloser Empfang aus"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無線接收器已關閉"
+          }
+        }
+      }
+    },
+    "With Device Frame" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit Gerätrahmen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "包含裝置邊框"
+          }
+        }
+      }
+    },
+    "With frame" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit Rahmen"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "含邊框"
+          }
+        }
+      }
+    },
+    "Without frame: round corners like the device" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ohne Rahmen: Ecken wie das Gerät abrunden"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不含邊框：圓角與裝置相同"
+          }
+        }
+      }
+    },
+    "yyyy-MM-dd 'at' HH.mm.ss" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "yyyy-MM-dd 'um' HH.mm.ss"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "yyyy-MM-dd HH.mm.ss"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

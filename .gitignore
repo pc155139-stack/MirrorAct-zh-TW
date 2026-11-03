@@ -1,0 +1,19 @@
+# Dependencies and build (created by scripts/)
+Vendor/
+MirrorAct.xcodeproj/
+build/
+DerivedData/
+
+# created by scripts/make-icon.sh
+Resources/AppIcon-1024.png
+
+# local signing
+Config/Local.xcconfig
+
+# xcodegen generates Info.plist and entitlements from project.yml
+MirrorAct/Info.plist
+MirrorAct/MirrorAct.entitlements
+
+.DS_Store
+*.xcuserstate
+xcuserdata/

@@ -1,0 +1,8 @@
+// Copy to Config/Local.xcconfig and adjust (not checked in).
+// With an Apple Development certificate, macOS keeps the camera permission across rebuilds;
+// when signed ad hoc, macOS asks again after every build.
+// DEVELOPMENT_TEAM also signs the agent for controlling iPhone/iPad (scripts/build-agent.sh).
+
+CODE_SIGN_IDENTITY = Apple Development
+DEVELOPMENT_TEAM = ABCDE12345
+// PRODUCT_BUNDLE_IDENTIFIER = com.example.MirrorAct

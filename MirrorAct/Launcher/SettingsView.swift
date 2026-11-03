@@ -1,0 +1,231 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+import SwiftUI
+import UniformTypeIdentifiers
+
+struct SettingsView: View {
+    static let width: CGFloat = 500
+    /// Title bar and toolbar of the window (measured 88 pt)
+    static let windowChrome: CGFloat = 90
+    private static let screenMargin: CGFloat = 20
+
+    /// Height above which a page scrolls, so the window fits on the screen
+    /// (MacBook Air 13": 1470 × 956)
+    static func maxPageHeight(visibleHeight: CGFloat) -> CGFloat {
+        max(300, visibleHeight - windowChrome - screenMargin)
+    }
+
+    @AppStorage("settingsTab") private var tab = "general"
+
+    var body: some View {
+        let maxHeight = Self.maxPageHeight(visibleHeight: NSScreen.main?.visibleFrame.height ?? 800)
+        TabView(selection: $tab) {
+            GeneralSettingsView()
+                .settingsPage(maxHeight: maxHeight)
+                .tabItem { Label("General", systemImage: "gearshape") }
+                .tag("general")
+            DesignSettingsView()
+                .settingsPage(maxHeight: maxHeight)
+                .tabItem { Label("Style", systemImage: "paintpalette") }
+                .tag("design")
+        }
+        .frame(width: Self.width)
+    }
+}
+
+extension View {
+    /// as tall as the content, at most maxHeight; beyond that the form scrolls
+    func settingsPage(maxHeight: CGFloat) -> some View {
+        SettingsPageLayout(maxHeight: maxHeight) { self }
+    }
+}
+
+private struct SettingsPageLayout: Layout {
+    let maxHeight: CGFloat
+
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+        guard let page = subviews.first else { return .zero }
+        let ideal = page.sizeThatFits(ProposedViewSize(width: proposal.width, height: nil))
+        return CGSize(width: ideal.width, height: min(ideal.height, maxHeight))
+    }
+
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+        subviews.first?.place(at: bounds.origin, proposal: ProposedViewSize(bounds.size))
+    }
+}
+
+// MARK: General
+
+struct GeneralSettingsView: View {
+    @ObservedObject private var settings = AppSettings.shared
+    @ObservedObject private var model = AppModel.shared
+    @State private var name = AppSettings.shared.receiverName
+    @State private var pin = AppSettings.shared.pin
+    @State private var height = AppSettings.shared.streamHeight
+    @State private var fps = AppSettings.shared.maxFPS
+    @State private var hevc = AppSettings.shared.hevc
+    @State private var peerToPeer = AppSettings.shared.peerToPeer
+
+    private var changed: Bool {
+        name != settings.receiverName || pin != settings.pin || height != settings.streamHeight
+            || fps != settings.maxFPS || hevc != settings.hevc || peerToPeer != settings.peerToPeer
+    }
+
+    @State private var language = AppSettings.shared.appLanguage
+    @State private var languageChanged = false
+
+    private var languageSelection: Binding<String> {
+        Binding(get: { language }, set: { value in
+            language = value
+            settings.appLanguage = value
+            languageChanged = true
+        })
+    }
+
+    private var pinValid: Bool { pin.count == 4 && pin.allSatisfy(\.isNumber) && pin != "0000" }
+
+    var body: some View {
+        Form {
+            Section("Wireless receiver (AirPlay)") {
+                TextField("Name on the iPhone", text: $name)
+                Toggle("Direct connection over Apple Wireless (AWDL)", isOn: $peerToPeer)
+                Text("Needed when the iPhone does not find the Mac on Wi-Fi. Asks for a code on first connection.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                TextField("Code (4 digits)", text: $pin)
+                    .disabled(!peerToPeer)
+                Picker("Resolution", selection: $height) {
+                    Text("1080 pixels high").tag(1080)
+                    Text("1440 pixels high").tag(1440)
+                    Text("2160 pixels high").tag(2160)
+                }
+                Picker("Frame rate", selection: $fps) {
+                    Text("30 fps").tag(30)
+                    Text("60 fps").tag(60)
+                }
+                Toggle("Allow HEVC (needed above 1080)", isOn: $hevc)
+                HStack {
+                    Spacer()
+                    Button("Apply and restart") {
+                        settings.receiverName = name.trimmingCharacters(in: .whitespaces)
+                        settings.pin = pin
+                        settings.streamHeight = height
+                        settings.maxFPS = fps
+                        settings.hevc = hevc
+                        settings.peerToPeer = peerToPeer
+                        model.restartReceiver()
+                    }
+                    .disabled(!changed || (peerToPeer && !pinValid) || name.trimmingCharacters(in: .whitespaces).isEmpty)
+                    .keyboardShortcut(.defaultAction)
+                }
+            }
+            Section("Language") {
+                Picker("Language", selection: languageSelection) {
+                    Text("System language").tag("system")
+                    ForEach(AppSettings.languages, id: \.id) { language in
+                        Text(verbatim: language.name).tag(language.id)
+                    }
+                }
+                if languageChanged {
+                    HStack {
+                        Text("Takes effect after a restart.")
+                            .foregroundStyle(.secondary)
+                        Spacer()
+                        Button("Restart Now") { AppSettings.relaunch() }
+                    }
+                }
+            }
+            Section("Window") {
+                Toggle("Show device frame", isOn: $settings.showFrame)
+                Toggle("Keep on top", isOn: $settings.alwaysOnTop)
+                Toggle("Play sound", isOn: $settings.playAudio)
+            }
+            Section("iPhone and iPad control") {
+                Toggle("Start control when a device connects", isOn: $settings.autoStartControl)
+                Group {
+                    if IOSControl.isAgentBuilt {
+                        Text("Otherwise click “Control” in the mirror window. Needs Xcode and Developer Mode on the device.")
+                    } else {
+                        Text("The agent is not built yet: run scripts/build-agent.sh in the MirrorAct folder. Also needs Xcode and Developer Mode on the device.")
+                    }
+                }
+                .font(.caption)
+                .foregroundStyle(.secondary)
+            }
+            Section("Recording") {
+                Toggle("Record with device frame", isOn: $settings.recordWithFrame)
+                Text("Background, padding and aspect ratio come from “Style”. A transparent background produces HEVC with transparency, otherwise H.264. Saved to the Desktop.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+        }
+        .formStyle(.grouped)
+    }
+}
+
+// MARK: Style
+
+struct DesignSettingsView: View {
+    @ObservedObject private var settings = AppSettings.shared
+
+    var body: some View {
+        Form {
+            Section {
+                DesignPreview(style: settings.style, showFrame: settings.showFrame)
+                    .frame(height: 240)
+                    .frame(maxWidth: .infinity)
+            }
+            StyleControls(style: $settings.style, showFrame: $settings.showFrame)
+            Section {
+                Text("Default for screenshots, recordings and presenting (⌃⌘F). The mirror window shows no background. In the editor (⌘E) you can change the style per file.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+        }
+        .formStyle(.grouped)
+    }
+}
+
+/// Preview with the mirror window's current image (otherwise a test image), on a checkerboard for transparency
+struct DesignPreview: View {
+    let style: FrameStyle
+    let showFrame: Bool
+
+    var body: some View {
+        ZStack {
+            Checkerboard()
+            if let image = render() {
+                Image(decorative: image, scale: 1)
+                    .resizable()
+                    .interpolation(.high)
+                    .scaledToFit()
+                    .padding(8)
+            }
+        }
+        .clipShape(RoundedRectangle(cornerRadius: 8))
+    }
+
+    private func render() -> CGImage? {
+        let session = MainActor.assumeIsolated { AppModel.shared.keyMirror?.session }
+        var screen: CGImage?
+        var profile = DeviceProfile.forModelIdentifier("iPhone14,2")!
+        if let session, let buffer = session.sink.latest {
+            screen = FrameRenderer.cgImage(from: buffer)
+            profile = MainActor.assumeIsolated { session.profile }
+        }
+        guard let full = screen ?? RenderTest.testScreen(size: CGSize(width: 1170, height: 2532)) else { return nil }
+        // render downscaled so the preview stays smooth
+        let scale = min(1, 520 / CGFloat(max(full.width, full.height)))
+        let small = Self.scaled(full, by: scale) ?? full
+        return FrameRenderer.render(screen: small, profile: profile, showFrame: showFrame, style: style)
+    }
+
+    private static func scaled(_ image: CGImage, by scale: CGFloat) -> CGImage? {
+        let w = Int(CGFloat(image.width) * scale), h = Int(CGFloat(image.height) * scale)
+        guard let ctx = CGContext(data: nil, width: w, height: h, bitsPerComponent: 8, bytesPerRow: 0,
+                                  space: CGColorSpace(name: CGColorSpace.sRGB)!,
+                                  bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return nil }
+        ctx.interpolationQuality = .high
+        ctx.draw(image, in: CGRect(x: 0, y: 0, width: w, height: h))
+        return ctx.makeImage()
+    }
+}

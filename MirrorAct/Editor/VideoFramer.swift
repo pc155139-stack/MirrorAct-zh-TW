@@ -1,0 +1,98 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+import AVFoundation
+import CoreImage
+
+/// Frames existing videos (e.g. screen recordings from the iPhone) via an AVVideoComposition
+enum VideoFramer {
+    struct Source {
+        let asset: AVURLAsset
+        let size: CGSize              // displayed size (rotation applied)
+        let transform: CGAffineTransform
+        let duration: CMTime
+    }
+
+    enum FramerError: LocalizedError {
+        case noVideo, exportFailed(String)
+        var errorDescription: String? {
+            switch self {
+            case .noVideo: return String(localized: "The file contains no video track.")
+            case let .exportFailed(reason): return String(localized: "Export failed: \(reason)")
+            }
+        }
+    }
+
+    static func load(_ url: URL) async throws -> Source {
+        let asset = AVURLAsset(url: url)
+        guard let track = try await asset.loadTracks(withMediaType: .video).first else { throw FramerError.noVideo }
+        let natural = try await track.load(.naturalSize)
+        let transform = try await track.load(.preferredTransform)
+        let duration = try await asset.load(.duration)
+        let shown = CGRect(origin: .zero, size: natural).applying(transform)
+        return Source(asset: asset, size: CGSize(width: abs(shown.width), height: abs(shown.height)),
+                      transform: transform, duration: duration)
+    }
+
+    /// Is transparency needed (→ HEVC with alpha)?
+    static func needsAlpha(style: FrameStyle, showFrame: Bool) -> Bool {
+        !SceneRenderer.isPassthrough(style: style, showFrame: showFrame) && style.background == .transparent
+    }
+
+    /// previewScale < 1 renders smaller (smooth preview)
+    static func composition(for source: Source, style: FrameStyle, profile: DeviceProfile, showFrame: Bool,
+                            previewScale: CGFloat = 1) async throws -> AVVideoComposition? {
+        if SceneRenderer.isPassthrough(style: style, showFrame: showFrame), previewScale == 1 { return nil }
+        let natural = SceneRenderer.naturalCanvas(style: style, profile: profile, showFrame: showFrame,
+                                                  screenSize: source.size)
+        let limit = min(1, 3840 / max(natural.width, natural.height),
+                        (3840 * 2160 / (natural.width * natural.height)).squareRoot()) * previewScale
+        let canvas = CGSize(width: SceneRenderer.even(natural.width * limit - 1),
+                            height: SceneRenderer.even(natural.height * limit - 1))
+        let renderer = SceneRenderer(style: style, profile: profile, showFrame: showFrame, fixedCanvas: canvas)
+        let orientation = ciTransform(for: source.transform)
+
+        let composition = try await AVMutableVideoComposition.videoComposition(with: source.asset) { request in
+            var image = request.sourceImage
+            if let orientation {
+                image = image.transformed(by: orientation)
+                image = image.transformed(by: CGAffineTransform(translationX: -image.extent.minX, y: -image.extent.minY))
+            }
+            request.finish(with: renderer.image(screen: image), context: nil)
+        }
+        composition.renderSize = canvas
+        return composition
+    }
+
+    /// preferredTransform assumes y pointing down; Core Image works with y pointing up
+    private static func ciTransform(for transform: CGAffineTransform) -> CGAffineTransform? {
+        guard !transform.isIdentity else { return nil }
+        let flip = CGAffineTransform(scaleX: 1, y: -1)
+        return flip.concatenating(CGAffineTransform(a: transform.a, b: transform.b, c: transform.c, d: transform.d,
+                                                    tx: 0, ty: 0)).concatenating(flip)
+    }
+
+    static func export(_ source: Source, composition: AVVideoComposition?, needsAlpha: Bool, range: CMTimeRange,
+                       to url: URL, progress: @escaping (Double) -> Void) async throws {
+        let preset = needsAlpha ? AVAssetExportPresetHEVCHighestQualityWithAlpha : AVAssetExportPresetHighestQuality
+        guard let session = AVAssetExportSession(asset: source.asset, presetName: preset) else {
+            throw FramerError.exportFailed(String(localized: "Export preset not available"))
+        }
+        try? FileManager.default.removeItem(at: url)
+        session.videoComposition = composition
+        session.timeRange = range
+
+        let monitor = Task {
+            for await state in session.states(updateInterval: 0.2) {
+                if case let .exporting(exportProgress) = state {
+                    progress(exportProgress.fractionCompleted)
+                }
+            }
+        }
+        defer { monitor.cancel() }
+        do {
+            try await session.export(to: url, as: .mov)
+        } catch {
+            throw FramerError.exportFailed(error.localizedDescription)
+        }
+        progress(1)
+    }
+}
