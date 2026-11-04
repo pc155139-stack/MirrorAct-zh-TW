@@ -26,6 +26,7 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
     private var zoom: CGFloat = 1
     private var placed = false
     private var resizeStartZoom: CGFloat = 1
+    private(set) var pictureInPicture = false
     private(set) var presentation: PresentationWindow?
     var isPresenting: Bool { presentation != nil }
     private var hideTask: Task<Void, Never>?
@@ -104,8 +105,8 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
         settings.$style.dropFirst().sink { [weak self] _ in
             DispatchQueue.main.async { self?.refreshPresentationBackground() }
         }.store(in: &cancellables)
-        settings.$alwaysOnTop.sink { [weak window] onTop in
-            window?.level = onTop ? .floating : .normal
+        settings.$alwaysOnTop.sink { [weak self, weak window] onTop in
+            window?.level = (self?.pictureInPicture == true || onTop) ? .floating : .normal
         }.store(in: &cancellables)
         chrome.$styleOpen.dropFirst().sink { [weak self] open in
             if !open { self?.scheduleHide() }
@@ -124,6 +125,34 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
         window?.makeKeyAndOrderFront(nil)
         if frameView.acceptsFirstResponder { window?.makeFirstResponder(frameView) }
         NSApp.activate(ignoringOtherApps: true)
+    }
+
+    /// Use the existing capture session in a compact, native resizable window.
+    func togglePictureInPicture() {
+        guard let window, presentation == nil else { return }
+        pictureInPicture.toggle()
+        if pictureInPicture {
+            window.styleMask = [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView]
+            window.titleVisibility = .hidden
+            window.titlebarAppearsTransparent = true
+            window.isMovableByWindowBackground = true
+            window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
+            window.backgroundColor = .black
+            railView.isHidden = true
+            hudView.isHidden = true
+        } else {
+            window.styleMask = [.borderless, .closable, .miniaturizable, .resizable]
+            window.contentAspectRatio = .zero
+            window.contentMinSize = .zero
+            window.isMovableByWindowBackground = false
+            window.collectionBehavior = [.managed, .participatesInCycle, .fullScreenNone]
+            window.backgroundColor = .clear
+            railView.isHidden = false
+            hudView.isHidden = false
+        }
+        window.level = (pictureInPicture || settings.alwaysOnTop) ? .floating : .normal
+        applyLayout()
+        window.makeKeyAndOrderFront(nil)
     }
 
     func windowWillClose(_ notification: Notification) {
@@ -213,6 +242,9 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
         size.addItem(ActionMenuItem(String(localized: "Smaller"), key: "-", a.zoomOut))
         menu.addItem(ActionMenuItem.submenu(String(localized: "Size"), size))
 
+        menu.addItem(ActionMenuItem(String(localized: "Picture in Picture"), state: pictureInPicture) { [weak self] in
+            self?.togglePictureInPicture()
+        })
         menu.addItem(ActionMenuItem(String(localized: "Device Frame"), state: settings.showFrame) { [weak self] in
             self?.settings.showFrame.toggle()
         })
@@ -244,7 +276,7 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
         return FrameLayout(profile: session.profile,
                            screenSize: CGSize(width: (screen.width * zoom).rounded(),
                                               height: (screen.height * zoom).rounded()),
-                           showFrame: settings.showFrame)
+                           showFrame: pictureInPicture ? false : settings.showFrame)
     }
 
     private var railSize: CGSize {
@@ -253,15 +285,15 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
     }
 
     private func contentSize(for layout: FrameLayout) -> CGSize {
-        CGSize(width: (layout.totalSize.width + Self.railGap + MirrorToolRail.width).rounded(.up),
-               height: max(layout.totalSize.height, railSize.height).rounded(.up))
+        CGSize(width: (layout.totalSize.width + (pictureInPicture ? 0 : Self.railGap + MirrorToolRail.width)).rounded(.up),
+               height: (pictureInPicture ? layout.totalSize.height : max(layout.totalSize.height, railSize.height)).rounded(.up))
     }
 
     private func fittingZoom(maxZoom: CGFloat) -> CGFloat {
         let visible = (window?.screen ?? NSScreen.main)?.visibleFrame.size ?? CGSize(width: 1440, height: 900)
         let unit = layout(for: 1).totalSize
         let availableHeight = visible.height * 0.92
-        let availableWidth = visible.width * 0.92 - Self.railGap - MirrorToolRail.width
+        let availableWidth = visible.width * 0.92 - (pictureInPicture ? 0 : Self.railGap + MirrorToolRail.width)
         let fit = min(availableHeight / max(1, unit.height), availableWidth / max(1, unit.width))
         return max(0.25, min(maxZoom, fit))
     }
@@ -316,12 +348,13 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
     func windowWillResize(_ sender: NSWindow, to frameSize: NSSize) -> NSSize {
         // native resizing: keep the device's aspect ratio
         let unit = layout(for: 1).totalSize
-        let proposed = (frameSize.width - Self.railGap - MirrorToolRail.width) / max(1, unit.width)
+        let proposed = (frameSize.width - (pictureInPicture ? 0 : Self.railGap + MirrorToolRail.width)) / max(1, unit.width)
         zoom = max(0.25, min(3, proposed))
         return contentSize(for: layout(for: zoom))
     }
 
     func windowDidResize(_ notification: Notification) {
+        frameView.layoutModel = layout(for: zoom)
         container.needsLayout = true
     }
 
@@ -333,6 +366,10 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
         guard let window else { return }
         let model = layout(for: zoom)
         frameView.layoutModel = model
+        if pictureInPicture {
+            window.contentAspectRatio = model.totalSize
+            window.contentMinSize = CGSize(width: 240, height: 135)
+        }
         let size = contentSize(for: model)
         // top-left corner stays put
         let frame = NSRect(x: window.frame.minX, y: window.frame.maxY - size.height,
@@ -349,6 +386,7 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
         let device = frameView.layoutModel?.totalSize ?? .zero
         frameView.frame = CGRect(x: 0, y: ((bounds.height - device.height) / 2).rounded(),
                                  width: device.width, height: device.height)
+        if pictureInPicture { return }
         let rail = railSize
         railView.frame = CGRect(x: device.width + Self.railGap, y: ((bounds.height - rail.height) / 2).rounded(),
                                 width: rail.width, height: rail.height)
