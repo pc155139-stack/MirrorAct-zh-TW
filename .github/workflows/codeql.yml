@@ -41,9 +41,10 @@ jobs:
           languages: swift
           build-mode: manual
       - name: Build MirrorAct for analysis
-        run: scripts/build.sh --no-install ARCHS=arm64 ONLY_ACTIVE_ARCH=YES
+        run: scripts/build.sh --debug --no-install ARCHS=arm64 ONLY_ACTIVE_ARCH=YES
         env:
           MIRRORACT_DERIVED: ${{ runner.temp }}/MirrorActDerivedData
+          MIRRORACT_ARCH: arm64
       - uses: github/codeql-action/analyze@v4
         with:
           category: /language:swift

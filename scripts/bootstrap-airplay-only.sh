@@ -20,6 +20,7 @@ fi
 
 cmake -S "$ROOT/Config/AirPlayOnly" -B "$BUILD" -DCMAKE_BUILD_TYPE=Release \
   -DNO_MARCH_NATIVE=ON -DCMAKE_OSX_DEPLOYMENT_TARGET=15.0 \
+  -DCMAKE_OSX_ARCHITECTURES="${MIRRORACT_ARCH:-$(uname -m)}" \
   -DPKG_CONFIG_EXECUTABLE="$ROOT/Config/AirPlayOnly/pkg-config-openssl3.sh" \
   -DLIBCRYPTO="$(brew --prefix openssl@3)/lib/libcrypto.a" \
   > "$BUILD.log" 2>&1 || { cat "$BUILD.log"; exit 1; }
