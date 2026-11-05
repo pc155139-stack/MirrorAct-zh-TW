@@ -51,6 +51,7 @@ final class MirrorSession: ObservableObject, Identifiable {
     var isControlReady: Bool { controlState == .ready }
 
     var onMuteChange: ((Bool) -> Void)?
+    var onRecordingSaved: ((URL) -> Void)?
     /// window was closed: stop the source
     var onClose: (() -> Void)?
 
@@ -161,6 +162,7 @@ final class MirrorSession: ObservableObject, Identifiable {
                 self?.lastExport = url
                 self?.lastEditable = recorder.isPassthrough ? url : nil
                 self?.showToast(String(localized: "Recording saved – drag it out to share"))
+                self?.onRecordingSaved?(url)
             case let .failure(error):
                 Log.error("Recording: \(error.localizedDescription)")
                 self?.showToast(String(localized: "Recording failed"))

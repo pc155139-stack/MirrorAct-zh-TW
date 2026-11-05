@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 import AppKit
+import SwiftUI
 
 /// A native, resizable video-only window. It displays an existing MirrorSession;
 /// USB and AirPlay capture stay in MirrorAct and are never opened a second time.
@@ -9,7 +10,7 @@ final class PictureInPictureWindow: NSWindow, NSWindowDelegate {
     private let placeholder = NSTextField(labelWithString: "")
     var onClose: (() -> Void)?
 
-    init(title: String, videoSize: CGSize, alwaysOnTop: Bool) {
+    init(title: String, videoSize: CGSize, alwaysOnTop: Bool, session: MirrorSession) {
         let initialSize = Self.fittedSize(for: videoSize, on: NSScreen.main)
         super.init(contentRect: NSRect(origin: .zero, size: initialSize),
                    styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
@@ -30,6 +31,14 @@ final class PictureInPictureWindow: NSWindow, NSWindowDelegate {
         videoView.autoresizingMask = [.width, .height]
         videoView.frame = NSRect(origin: .zero, size: initialSize)
         contentView = videoView
+
+        let recordControl = NSHostingView(rootView: PiPRecordingControl(session: session))
+        recordControl.translatesAutoresizingMaskIntoConstraints = false
+        videoView.addSubview(recordControl)
+        NSLayoutConstraint.activate([
+            recordControl.trailingAnchor.constraint(equalTo: videoView.trailingAnchor, constant: -12),
+            recordControl.bottomAnchor.constraint(equalTo: videoView.bottomAnchor, constant: -12),
+        ])
 
         placeholder.textColor = .white
         placeholder.font = .systemFont(ofSize: 15, weight: .medium)
@@ -76,5 +85,35 @@ final class PictureInPictureWindow: NSWindow, NSWindowDelegate {
         let visible = screen?.visibleFrame.size ?? CGSize(width: 1440, height: 900)
         let width = min(preferredWidth, visible.width * 0.8, visible.height * 0.8 * safe.width / safe.height)
         return CGSize(width: max(180, width), height: max(120, width * safe.height / safe.width))
+    }
+}
+
+/// Remains clickable even when the main mirror window is hidden for picture in picture.
+private struct PiPRecordingControl: View {
+    @ObservedObject var session: MirrorSession
+
+    var body: some View {
+        Group {
+            if let start = session.recordingStartedAt {
+                TimelineView(.periodic(from: start, by: 1)) { context in
+                    Button {
+                        session.stopRecording()
+                    } label: {
+                        Label("\(MirrorToolRail.elapsed(from: start, to: context.date)) · \(String(localized: "Stop Recording"))",
+                              systemImage: "stop.circle.fill")
+                    }
+                }
+            } else {
+                Button {
+                    session.startRecording()
+                } label: {
+                    Label("Record", systemImage: "record.circle.fill")
+                }
+            }
+        }
+        .buttonStyle(.borderedProminent)
+        .tint(.red)
+        .controlSize(.large)
+        .environment(\.colorScheme, .dark)
     }
 }

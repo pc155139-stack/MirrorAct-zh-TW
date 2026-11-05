@@ -46,8 +46,8 @@ struct MirrorToolRail: View {
             RailButton(symbol: "xmark", title: String(localized: "Close"), small: true, action: actions.close)
                 .padding(.bottom, 4)
                 .railItem(visible)
-            controlButtons
             recordButton
+            controlButtons
             RailButton(symbol: "camera.fill", title: String(localized: "Photo"),
                        help: String(localized: "Click: screenshot to the Desktop · ⌥-click: copy · Drag: straight into an app"),
                        action: {
@@ -146,8 +146,12 @@ struct MirrorToolRail: View {
                 )
             } else {
                 RailButton(symbol: "record.circle", title: String(localized: "Record"), help: String(localized: "Record video (⌘R)"),
-                           action: actions.toggleRecording)
-                    .railItem(visible)
+                           tint: .red, action: actions.toggleRecording)
+                    .background(
+                        RoundedRectangle(cornerRadius: 14, style: .continuous)
+                            .fill(.regularMaterial)
+                            .opacity(visible ? 0 : 1)
+                    )
             }
         }
     }

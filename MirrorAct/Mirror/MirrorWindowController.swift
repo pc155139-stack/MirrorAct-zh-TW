@@ -29,6 +29,7 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
     private(set) var presentation: PresentationWindow?
     var isPresenting: Bool { presentation != nil }
     private var pictureInPicture: PictureInPictureWindow?
+    private var recordingPreview: RecordingPreviewWindowController?
     var isPictureInPictureKeyWindow: Bool { pictureInPicture?.isKeyWindow == true }
     private var hideTask: Task<Void, Never>?
     private(set) var actions: MirrorActions!
@@ -107,6 +108,15 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
         session.$lastExport.dropFirst().sink { [weak self] _ in
             DispatchQueue.main.async { self?.layoutSubviews() }
         }.store(in: &cancellables)
+        session.onRecordingSaved = { [weak self] url in
+            guard let self else { return }
+            self.recordingPreview?.close()
+            let preview = RecordingPreviewWindowController(url: url)
+            preview.onClose = { [weak self] in self?.recordingPreview = nil }
+            self.recordingPreview = preview
+            preview.showWindow(nil)
+            NSApp.activate(ignoringOtherApps: true)
+        }
         settings.$showFrame.dropFirst().sink { [weak self] _ in
             DispatchQueue.main.async { self?.applyLayout() }
         }.store(in: &cancellables)
@@ -395,7 +405,7 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
         if !settings.alwaysOnTop { settings.alwaysOnTop = true }
         let size = session.frameSize == .zero ? session.screenPointSize : session.frameSize
         let pip = PictureInPictureWindow(title: session.deviceName, videoSize: size,
-                                         alwaysOnTop: settings.alwaysOnTop)
+                                         alwaysOnTop: settings.alwaysOnTop, session: session)
         pip.onClose = { [weak self] in self?.exitPictureInPicture(reshow: true, closeWindow: false) }
         pip.videoView.menuProvider = { [weak self] in self?.contextMenu() }
         pictureInPicture = pip
