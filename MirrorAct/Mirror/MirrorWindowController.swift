@@ -26,9 +26,10 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
     private var zoom: CGFloat = 1
     private var placed = false
     private var resizeStartZoom: CGFloat = 1
-    private(set) var pictureInPicture = false
     private(set) var presentation: PresentationWindow?
     var isPresenting: Bool { presentation != nil }
+    private var pictureInPicture: PictureInPictureWindow?
+    var isPictureInPictureKeyWindow: Bool { pictureInPicture?.isKeyWindow == true }
     private var hideTask: Task<Void, Never>?
     private(set) var actions: MirrorActions!
 
@@ -50,6 +51,7 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
         actions = MirrorActions(
             close: { [weak self] in self?.close() },
             present: { [weak self] in self?.togglePresentation() },
+            pictureInPicture: { [weak self] in self?.togglePictureInPicture() },
             zoomIn: { [weak self] in self?.zoomIn() },
             zoomOut: { [weak self] in self?.zoomOut() },
             actualSize: { [weak self] in self?.actualSize() },
@@ -80,16 +82,25 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
         frameView.bezelColor = settings.style.bezelColor
         session.sink.attach(frameView.videoView.displayLayer)
 
-        session.$frameSize.removeDuplicates().dropFirst().sink { [weak self] _ in
-            DispatchQueue.main.async { self?.applyLayout() }
+        session.$frameSize.removeDuplicates().dropFirst().sink { [weak self] size in
+            DispatchQueue.main.async {
+                if let pip = self?.pictureInPicture { pip.updateVideoSize(size) }
+                else { self?.applyLayout() }
+            }
         }.store(in: &cancellables)
         session.$profile.removeDuplicates().dropFirst().sink { [weak self] _ in
             DispatchQueue.main.async { self?.applyLayout() }
         }.store(in: &cancellables)
         session.$state.sink { [weak self] state in
-            DispatchQueue.main.async { self?.updatePlaceholder(state) }
+            DispatchQueue.main.async {
+                self?.updatePlaceholder(state)
+                self?.pictureInPicture?.updatePlaceholder(state)
+            }
         }.store(in: &cancellables)
-        session.$deviceName.sink { [weak window] name in window?.title = name }.store(in: &cancellables)
+        session.$deviceName.sink { [weak self] name in
+            self?.window?.title = name
+            self?.pictureInPicture?.title = name
+        }.store(in: &cancellables)
         session.$controlState.removeDuplicates().sink { [weak self] state in
             DispatchQueue.main.async { self?.controlStateChanged(state) }
         }.store(in: &cancellables)
@@ -105,8 +116,9 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
         settings.$style.dropFirst().sink { [weak self] _ in
             DispatchQueue.main.async { self?.refreshPresentationBackground() }
         }.store(in: &cancellables)
-        settings.$alwaysOnTop.sink { [weak self, weak window] onTop in
-            window?.level = (self?.pictureInPicture == true || onTop) ? .floating : .normal
+        settings.$alwaysOnTop.sink { [weak self] onTop in
+            self?.window?.level = onTop ? .floating : .normal
+            self?.pictureInPicture?.level = onTop ? .floating : .normal
         }.store(in: &cancellables)
         chrome.$styleOpen.dropFirst().sink { [weak self] open in
             if !open { self?.scheduleHide() }
@@ -116,6 +128,11 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
     required init?(coder: NSCoder) { fatalError() }
 
     func present() {
+        if let pictureInPicture {
+            pictureInPicture.makeKeyAndOrderFront(nil)
+            NSApp.activate(ignoringOtherApps: true)
+            return
+        }
         if !placed {
             zoom = fittingZoom(maxZoom: 1)
             applyLayout()
@@ -127,35 +144,8 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
         NSApp.activate(ignoringOtherApps: true)
     }
 
-    /// Use the existing capture session in a compact, native resizable window.
-    func togglePictureInPicture() {
-        guard let window, presentation == nil else { return }
-        pictureInPicture.toggle()
-        if pictureInPicture {
-            window.styleMask = [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView]
-            window.titleVisibility = .hidden
-            window.titlebarAppearsTransparent = true
-            window.isMovableByWindowBackground = true
-            window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
-            window.backgroundColor = .black
-            railView.isHidden = true
-            hudView.isHidden = true
-        } else {
-            window.styleMask = [.borderless, .closable, .miniaturizable, .resizable]
-            window.contentAspectRatio = .zero
-            window.contentMinSize = .zero
-            window.isMovableByWindowBackground = false
-            window.collectionBehavior = [.managed, .participatesInCycle, .fullScreenNone]
-            window.backgroundColor = .clear
-            railView.isHidden = false
-            hudView.isHidden = false
-        }
-        window.level = (pictureInPicture || settings.alwaysOnTop) ? .floating : .normal
-        applyLayout()
-        window.makeKeyAndOrderFront(nil)
-    }
-
     func windowWillClose(_ notification: Notification) {
+        exitPictureInPicture(reshow: false)
         if presentation != nil { exitPresentation(reshow: false) }
         chrome.styleOpen = false
         session.control?.stop()
@@ -228,6 +218,10 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
         menu.addItem(ActionMenuItem(String(localized: "Keep on Top"), key: "t", state: settings.alwaysOnTop) { [weak self] in
             self?.settings.alwaysOnTop.toggle()
         })
+        menu.addItem(ActionMenuItem(String(localized: "Picture in Picture"),
+                                    state: pictureInPicture != nil) { [weak self] in
+            self?.togglePictureInPicture()
+        })
         menu.addItem(ActionMenuItem(presentation == nil ? String(localized: "Present")
                                                         : String(localized: "Exit Presentation"), a.present))
         menu.addItem(.separator())
@@ -242,9 +236,6 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
         size.addItem(ActionMenuItem(String(localized: "Smaller"), key: "-", a.zoomOut))
         menu.addItem(ActionMenuItem.submenu(String(localized: "Size"), size))
 
-        menu.addItem(ActionMenuItem(String(localized: "Picture in Picture"), state: pictureInPicture) { [weak self] in
-            self?.togglePictureInPicture()
-        })
         menu.addItem(ActionMenuItem(String(localized: "Device Frame"), state: settings.showFrame) { [weak self] in
             self?.settings.showFrame.toggle()
         })
@@ -276,7 +267,7 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
         return FrameLayout(profile: session.profile,
                            screenSize: CGSize(width: (screen.width * zoom).rounded(),
                                               height: (screen.height * zoom).rounded()),
-                           showFrame: pictureInPicture ? false : settings.showFrame)
+                           showFrame: settings.showFrame)
     }
 
     private var railSize: CGSize {
@@ -285,15 +276,15 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
     }
 
     private func contentSize(for layout: FrameLayout) -> CGSize {
-        CGSize(width: (layout.totalSize.width + (pictureInPicture ? 0 : Self.railGap + MirrorToolRail.width)).rounded(.up),
-               height: (pictureInPicture ? layout.totalSize.height : max(layout.totalSize.height, railSize.height)).rounded(.up))
+        CGSize(width: (layout.totalSize.width + Self.railGap + MirrorToolRail.width).rounded(.up),
+               height: max(layout.totalSize.height, railSize.height).rounded(.up))
     }
 
     private func fittingZoom(maxZoom: CGFloat) -> CGFloat {
         let visible = (window?.screen ?? NSScreen.main)?.visibleFrame.size ?? CGSize(width: 1440, height: 900)
         let unit = layout(for: 1).totalSize
         let availableHeight = visible.height * 0.92
-        let availableWidth = visible.width * 0.92 - (pictureInPicture ? 0 : Self.railGap + MirrorToolRail.width)
+        let availableWidth = visible.width * 0.92 - Self.railGap - MirrorToolRail.width
         let fit = min(availableHeight / max(1, unit.height), availableWidth / max(1, unit.width))
         return max(0.25, min(maxZoom, fit))
     }
@@ -348,13 +339,12 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
     func windowWillResize(_ sender: NSWindow, to frameSize: NSSize) -> NSSize {
         // native resizing: keep the device's aspect ratio
         let unit = layout(for: 1).totalSize
-        let proposed = (frameSize.width - (pictureInPicture ? 0 : Self.railGap + MirrorToolRail.width)) / max(1, unit.width)
+        let proposed = (frameSize.width - Self.railGap - MirrorToolRail.width) / max(1, unit.width)
         zoom = max(0.25, min(3, proposed))
         return contentSize(for: layout(for: zoom))
     }
 
     func windowDidResize(_ notification: Notification) {
-        frameView.layoutModel = layout(for: zoom)
         container.needsLayout = true
     }
 
@@ -366,10 +356,6 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
         guard let window else { return }
         let model = layout(for: zoom)
         frameView.layoutModel = model
-        if pictureInPicture {
-            window.contentAspectRatio = model.totalSize
-            window.contentMinSize = CGSize(width: 240, height: 135)
-        }
         let size = contentSize(for: model)
         // top-left corner stays put
         let frame = NSRect(x: window.frame.minX, y: window.frame.maxY - size.height,
@@ -386,7 +372,6 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
         let device = frameView.layoutModel?.totalSize ?? .zero
         frameView.frame = CGRect(x: 0, y: ((bounds.height - device.height) / 2).rounded(),
                                  width: device.width, height: device.height)
-        if pictureInPicture { return }
         let rail = railSize
         railView.frame = CGRect(x: device.width + Self.railGap, y: ((bounds.height - rail.height) / 2).rounded(),
                                 width: rail.width, height: rail.height)
@@ -400,7 +385,38 @@ final class MirrorWindowController: NSWindowController, NSWindowDelegate {
 
     // MARK: Presentation
 
+    func togglePictureInPicture() {
+        if pictureInPicture != nil {
+            exitPictureInPicture(reshow: true)
+            return
+        }
+        if presentation != nil { exitPresentation(reshow: false) }
+        chrome.styleOpen = false
+        if !settings.alwaysOnTop { settings.alwaysOnTop = true }
+        let size = session.frameSize == .zero ? session.screenPointSize : session.frameSize
+        let pip = PictureInPictureWindow(title: session.deviceName, videoSize: size,
+                                         alwaysOnTop: settings.alwaysOnTop)
+        pip.onClose = { [weak self] in self?.exitPictureInPicture(reshow: true, closeWindow: false) }
+        pip.videoView.menuProvider = { [weak self] in self?.contextMenu() }
+        pictureInPicture = pip
+        pip.updatePlaceholder(session.state)
+        session.sink.attach(pip.videoView.displayLayer)
+        window?.orderOut(nil)
+        pip.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
+    }
+
+    private func exitPictureInPicture(reshow: Bool, closeWindow: Bool = true) {
+        guard let pip = pictureInPicture else { return }
+        pictureInPicture = nil
+        pip.onClose = nil
+        if closeWindow { pip.close() }
+        session.sink.attach(frameView.videoView.displayLayer)
+        if reshow { present() }
+    }
+
     func togglePresentation() {
+        if pictureInPicture != nil { exitPictureInPicture(reshow: false) }
         presentation == nil ? enterPresentation() : exitPresentation(reshow: true)
     }
 

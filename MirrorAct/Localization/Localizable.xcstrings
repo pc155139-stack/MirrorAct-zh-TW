@@ -3398,6 +3398,22 @@
         }
       }
     },
+    "Picture in Picture" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bild-in-Bild"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "畫中畫"
+          }
+        }
+      }
+    },
     "Photo" : {
       "localizations" : {
         "de" : {

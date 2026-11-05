@@ -58,7 +58,7 @@ enum Showcase {
         let device = deviceImage(screen: screen, profile: profile, height: 780)
         let chrome = MirrorChrome()
         chrome.hovering = true
-        let actions = MirrorActions(close: {}, present: {}, zoomIn: {}, zoomOut: {}, actualSize: {}, lifeSize: {},
+        let actions = MirrorActions(close: {}, present: {}, pictureInPicture: {}, zoomIn: {}, zoomOut: {}, actualSize: {}, lifeSize: {},
                                     pixelPerfect: {}, fitToScreen: {}, saveScreenshot: {}, copyScreenshot: {},
                                     screenshotFile: { nil }, toggleRecording: {}, disconnect: {})
         let rail = snapshot(MirrorToolRail(session: session, chrome: chrome, actions: actions).padding(12))

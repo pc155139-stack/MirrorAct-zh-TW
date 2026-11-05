@@ -6,6 +6,7 @@ import SwiftUI
 struct MirrorActions {
     var close: () -> Void
     var present: () -> Void
+    var pictureInPicture: () -> Void
     var zoomIn: () -> Void
     var zoomOut: () -> Void
     var actualSize: () -> Void
@@ -65,6 +66,9 @@ struct MirrorToolRail: View {
                 settings.alwaysOnTop.toggle()
             }
             .railItem(visible)
+            RailButton(symbol: "pip", title: String(localized: "Picture in Picture"),
+                       action: actions.pictureInPicture)
+                .railItem(visible)
             RailButton(symbol: "arrow.up.left.and.arrow.down.right", title: String(localized: "Full Screen"),
                        help: String(localized: "Present full screen (⌃⌘F, Esc to exit)"), action: actions.present)
                 .railItem(visible)

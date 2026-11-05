@@ -36,7 +36,8 @@ final class AppModel: ObservableObject {
 
     /// the presenting mirror window, otherwise the active one, otherwise any
     static func keyMirror(among controllers: [MirrorWindowController]) -> MirrorWindowController? {
-        controllers.first { $0.isPresenting } ?? controllers.first { $0.window?.isKeyWindow == true }
+        controllers.first { $0.isPresenting || $0.isPictureInPictureKeyWindow }
+            ?? controllers.first { $0.window?.isKeyWindow == true }
             ?? controllers.first
     }
 

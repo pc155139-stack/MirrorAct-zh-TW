@@ -98,6 +98,8 @@ struct MirrorCommands: Commands {
             Divider()
             Button("Present") { mirror?.togglePresentation() }
                 .keyboardShortcut("f", modifiers: [.command, .control])
+            Button("Picture in Picture") { mirror?.togglePictureInPicture() }
+                .keyboardShortcut("p", modifiers: [.command, .option])
             Button("Style …") { mirror?.showStylePanel() }
                 .keyboardShortcut("k")
             Toggle("Always Show Tools", isOn: $settings.alwaysShowTools)

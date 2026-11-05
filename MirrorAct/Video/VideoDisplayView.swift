@@ -6,6 +6,7 @@ import CoreMedia
 /// Displays CVPixelBuffers immediately (AVSampleBufferDisplayLayer, "DisplayImmediately").
 final class VideoDisplayView: NSView {
     let displayLayer = AVSampleBufferDisplayLayer()
+    var menuProvider: (() -> NSMenu?)?
 
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -20,6 +21,8 @@ final class VideoDisplayView: NSView {
     override func makeBackingLayer() -> CALayer { displayLayer }
 
     override var mouseDownCanMoveWindow: Bool { true }
+
+    override func menu(for event: NSEvent) -> NSMenu? { menuProvider?() ?? super.menu(for: event) }
 
     var cornerRadius: CGFloat {
         get { displayLayer.cornerRadius }

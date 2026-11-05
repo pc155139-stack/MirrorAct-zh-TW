@@ -72,7 +72,7 @@ enum RenderTest {
             let session = MirrorSession(id: "test", kind: .wireless, deviceName: "Test-iPhone",
                                         modelIdentifier: "iPhone14,2", muted: false)
             session.state = .live
-            let actions = MirrorActions(close: {}, present: {}, zoomIn: {}, zoomOut: {}, actualSize: {}, lifeSize: {},
+            let actions = MirrorActions(close: {}, present: {}, pictureInPicture: {}, zoomIn: {}, zoomOut: {}, actualSize: {}, lifeSize: {},
                                         pixelPerfect: {}, fitToScreen: {}, saveScreenshot: {}, copyScreenshot: {},
                                         screenshotFile: { nil }, toggleRecording: {}, disconnect: {})
             let chrome = MirrorChrome()

@@ -1,3 +1,5 @@
+> Originaldokumentation des Upstream-Projekts. Homebrew und die Releases unten gehören zu sopitz/MirrorAct. Für diese integrierte Version siehe [README.md](README.md).
+
 <p align="center"><img src="docs/icon.png" width="128" alt="MirrorAct-Symbol"></p>
 
 # MirrorAct
@@ -5,7 +7,7 @@
 iPhone, iPad oder Android-Telefon auf dem Mac spiegeln, rahmen und aufnehmen – per Kabel oder kabellos.
 Open Source, alles bleibt auf deinem Mac.
 
-*English: [README.md](README.md)*
+*English: [README.en.md](README.en.md) · 繁體中文: [README.md](README.md)*
 
 <p align="center"><img src="docs/mirror.jpg" width="800" alt="MirrorAct spiegelt ein iPhone, mit Werkzeugleiste und Stil-Panel"></p>
 
